@@ -5,7 +5,9 @@
                 <a class="flex justify-start items-center space-x-2" href="{{ route('home') }}">
                     <span class="sr-only">{{ __('Home') }}</span>
                     <x-icons.logo class="h-8 w-auto sm:h-10" />
-                    <p class="text-gray-500 text-3xl font-semibold mt-1">LM</p>
+                    <p class="text-gray-500 text-3xl font-semibold mt-1">
+                        {{ config('app.name') }}
+                    </p>
                 </a>
             </div>
             <div class="-mr-2 -my-2 md:hidden">
@@ -22,9 +24,6 @@
                 </a>
                 <a href="{{ route('contact') }}" class="text-base font-medium text-gray-500 hover:text-gray-900">
                     {{ __('Contact') }}
-                </a>
-                <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">
-                    {{ __('Shop') }}
                 </a>
             </nav>
             <livewire:components.site.header.parts.authentication />
