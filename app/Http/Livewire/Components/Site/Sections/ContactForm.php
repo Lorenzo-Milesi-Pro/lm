@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Components\Site\Sections;
 
 use App\Models\Message;
+use App\Notifications\NewMessage;
+use Illuminate\Support\Facades\Notification;
 use Livewire\Component;
 
 class ContactForm extends Component
@@ -57,5 +59,7 @@ class ContactForm extends Component
         $this->validate();
         $this->message->save();
         $this->isSent = true;
+        Notification::route('telegram', config('services.telegram.chat_id'))
+            ->notify(new NewMessage($this->message));
     }
 }
