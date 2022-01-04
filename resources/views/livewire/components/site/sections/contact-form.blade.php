@@ -14,9 +14,15 @@
                     Je serai ravi de vous aider. Laissez-moi un message via le formulaire ci-dessous et nous pourrons peut-être commencer quelquechose :)
                 </p>
                 @if($isSent)
-                <p class="mt-4 text-lg text-gray-500 sm:mt-3 bg-green-200">
-                    Votre message a bien été envoyé, merci, je vous contacte dès que possible !
-                </p>
+                <div class="mt-4 text-lg text-gray-500 sm:mt-3 bg-green-200 p-2 px-4 rounded-md">
+                    <p class="text-green-800 font-bold">
+                        Message envoyé !
+                    </p>
+                    <div class="h-2"></div>
+                    <p class="text-green-700">
+                        Votre message a bien été envoyé, merci, je vous contacte dès que possible !
+                    </p>
+                </div>
                 @else
                 <form wire:submit.prevent="send" class="mt-9 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
                     <div>
