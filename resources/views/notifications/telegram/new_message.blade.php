@@ -1,4 +1,4 @@
-# Someone has just sent a message :)
+Someone has just sent a message :)
 
 {{ $message->content }}
 
