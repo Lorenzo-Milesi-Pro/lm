@@ -4,10 +4,10 @@ namespace App\View\Components\Icons;
 
 use Illuminate\Contracts\View\View;
 
-class Newspaper extends HeroIcon
+class Collection extends HeroIcon
 {
     public function render(): View
     {
-        return view('components.icons.newspaper');
+        return view('components.icons.collection');
     }
 }
