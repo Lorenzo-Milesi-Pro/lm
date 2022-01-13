@@ -5,7 +5,7 @@
                 <a class="flex justify-start items-center space-x-2" href="{{ route('home') }}">
                     <span class="sr-only">{{ __('Home') }}</span>
                     <x-icons.logo class="h-8 w-auto sm:h-10" />
-                    <p class="text-gray-500 text-3xl font-semibold mt-1">
+                    <p class="text-gray-500 text-3xl font-semibold">
                         {{ config('app.name') }}
                     </p>
                 </a>
