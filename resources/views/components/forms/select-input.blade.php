@@ -3,7 +3,7 @@
 </label>
 <div class="mt-1 sm:mt-0 sm:col-span-2">
     <div class="max-w-lg flex rounded-md shadow-sm">
-        <select id="{{ $model }}" name="{{ $model }}" class="flex-1 block w-full focus:ring-indigo-500 focus:border-indigo-500 min-w-0 rounded-md sm:text-sm border-gray-300 @error($model) border-red-300 @enderror">
+        <select id="{{ $model }}" name="{{ $model }}" class="flex-1 block w-full focus:ring-sky-500 focus:border-sky-500 min-w-0 rounded-md sm:text-sm border-gray-300 @error($model) border-red-300 @enderror">
             <option>---</option>
             @foreach($options as $option)
                 <option value="{{ $option->$key }}">{{ $option->$value }}</option>

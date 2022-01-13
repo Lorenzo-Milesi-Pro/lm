@@ -48,7 +48,7 @@
                                     <div class="text-sm text-gray-500">5 min read</div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-emerald-100 text-emerald-800">
                   Active
                 </span>
                                 </td>
@@ -56,7 +56,7 @@
                                     Admin
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                    <a href="#" class="text-sky-600 hover:text-sky-900">Edit</a>
                                 </td>
                             </tr>
 

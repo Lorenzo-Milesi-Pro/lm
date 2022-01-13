@@ -8,7 +8,7 @@
                     <p class="text-gray-500 text-3xl font-semibold mt-1">LM</p>
                 </a>
                 <div class="-mr-2">
-                    <button wire:click="closeMenu" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <button wire:click="closeMenu" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500">
                         <span class="sr-only">Close menu</span>
                         <!-- Heroicon name: outline/x -->
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -20,35 +20,35 @@
             <div class="mt-6">
                 <nav class="grid gap-y-8">
                     <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                        <x-icons.desktop-computer class="flex-shrink-0 h-6 w-6 text-indigo-600" />
+                        <x-icons.desktop-computer class="flex-shrink-0 h-6 w-6 text-sky-600" />
                         <span class="ml-3 text-base font-medium text-gray-900">
                             Site vitrine dynamique
                         </span>
                     </a>
 
                     <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                        <x-icons.newspaper class="flex-shrink-0 h-6 w-6 text-indigo-600" />
+                        <x-icons.newspaper class="flex-shrink-0 h-6 w-6 text-sky-600" />
                         <span class="ml-3 text-base font-medium text-gray-900">
                             Blog et ECM
                         </span>
                     </a>
 
                     <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                        <x-icons.shopping-bag class="flex-shrink-0 h-6 w-6 text-indigo-600" />
+                        <x-icons.shopping-bag class="flex-shrink-0 h-6 w-6 text-sky-600" />
                         <span class="ml-3 text-base font-medium text-gray-900">
                             E-Commerce
                         </span>
                     </a>
 
                     <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                        <x-icons.calendar class="flex-shrink-0 h-6 w-6 text-indigo-600" />
+                        <x-icons.calendar class="flex-shrink-0 h-6 w-6 text-sky-600" />
                         <span class="ml-3 text-base font-medium text-gray-900">
                             Réservation en ligne
                         </span>
                     </a>
 
                     <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                        <x-icons.calculator class="flex-shrink-0 h-6 w-6 text-indigo-600" />
+                        <x-icons.calculator class="flex-shrink-0 h-6 w-6 text-sky-600" />
                         <span class="ml-3 text-base font-medium text-gray-900">
                             Gestion de stocks
                         </span>
@@ -85,7 +85,7 @@
                     {{ __('Sign in') }}
                 </a>
                 @if (Route::has('register'))
-                <a href="#" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+                <a href="#" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-sky-600 hover:bg-sky-700">
                     Sign up
                 </a>
                 @endif

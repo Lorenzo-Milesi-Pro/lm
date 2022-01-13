@@ -38,7 +38,7 @@
                                 <div class="max-w-lg space-y-4">
                                     <div class="relative flex items-start">
                                         <div class="flex items-center h-5">
-                                            <input id="published_at" name="published_at" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                            <input id="published_at" name="published_at" type="checkbox" class="focus:ring-sky-500 h-4 w-4 text-sky-600 border-gray-300 rounded">
                                         </div>
                                         <div class="ml-3 text-sm">
                                             <label for="published_at" class="font-medium text-gray-700">Published</label>
@@ -86,7 +86,7 @@
                                         <div id="tabs-1-panel-1" class="p-0.5 -m-0.5 rounded-lg" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
                                             <label for="post.content" class="sr-only">Content</label>
                                             <div>
-                                                <textarea wire:model="post.content" name="post.content" id="post.content" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md min-h-screen @error('post.content') border-red-300 @enderror" placeholder="Add your content..."></textarea>
+                                                <textarea wire:model="post.content" name="post.content" id="post.content" class="shadow-sm focus:ring-sky-500 focus:border-sky-500 block w-full sm:text-sm border-gray-300 rounded-md min-h-screen @error('post.content') border-red-300 @enderror" placeholder="Add your content..."></textarea>
                                             </div>
                                         </div>
                                     @else
@@ -105,10 +105,10 @@
 
             <div class="pt-5">
                 <div class="flex justify-end">
-                    <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
                         Cancel
                     </button>
-                    <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
                         Save
                     </button>
                 </div>

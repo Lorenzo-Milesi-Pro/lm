@@ -8,7 +8,7 @@
                 Derniers articles
             </h2>
             <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-                Si vous en voulez plus, <a href="#" class="text-indigo-500 hover:text-indigo-700 hover:underline">c'est par ici</a>
+                Si vous en voulez plus, <a href="#" class="text-sky-500 hover:text-sky-700 hover:underline">c'est par ici</a>
             </p>
         </div>
         <div class="mt-12 max-w-lg mx-auto grid gap-8 lg:grid-cols-3 lg:max-w-none">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                     <div class="flex-1">
-                        <p class="text-sm font-medium text-indigo-600">
+                        <p class="text-sm font-medium text-sky-600">
                             <a href="#" class="hover:underline">
                                 Article
                             </a>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                     <div class="flex-1">
-                        <p class="text-sm font-medium text-indigo-600">
+                        <p class="text-sm font-medium text-sky-600">
                             <a href="#" class="hover:underline">
                                 Video
                             </a>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                     <div class="flex-1">
-                        <p class="text-sm font-medium text-indigo-600">
+                        <p class="text-sm font-medium text-sky-600">
                             <a href="#" class="hover:underline">
                                 Case Study
                             </a>

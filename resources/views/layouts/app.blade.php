@@ -26,7 +26,7 @@
             <div class="flex flex-col min-h-0 bg-gray-800 w-72">
                 <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
                     <div class="flex items-center flex-shrink-0 px-4">
-                        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow">
+                        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-sky-500-mark-white-text.svg" alt="Workflow">
                     </div>
                     <nav class="mt-5 flex-1 px-2 bg-gray-800 space-y-1" aria-label="Sidebar">
                         {{ $side }}
