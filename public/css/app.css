@@ -2584,6 +2584,10 @@ select {
     height: 18rem;
   }
 
+  .sm\:h-16 {
+    height: 4rem;
+  }
+
   .sm\:w-10 {
     width: 2.5rem;
   }
