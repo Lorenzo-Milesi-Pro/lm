@@ -7,8 +7,10 @@ use App\Models\Blog\Post;
 use Arr;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\RedirectResponse;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Str;
 
 class PostForm extends Component
 {
@@ -56,7 +58,7 @@ class PostForm extends Component
         $this->domains = Domain::orderBy('name')->get();
     }
 
-    public function store()
+    public function store(): void
     {
         if(is_array($this->cover)) {
             $this->cover = Arr::last($this->cover);
@@ -66,7 +68,7 @@ class PostForm extends Component
 
         $post = new Post();
         $post->title = $this->title;
-        $post->cover = $this->cover?->store('blog');
+        $post->cover = $this->storeCoverAndGetPath();
         $post->excerpt = $this->excerpt;
         $post->content = $this->content;
         $post->blog_domain_id = $this->domain;
@@ -77,5 +79,11 @@ class PostForm extends Component
     public function domainStoreEvent()
     {
         $this->domains = Domain::orderBy('name')->get();
+    }
+
+    private function storeCoverAndGetPath(): string|null
+    {
+        $path = $this->cover?->store('public/blog');
+        return is_null($path) ? null : Str::after($path, 'public/');
     }
 }
