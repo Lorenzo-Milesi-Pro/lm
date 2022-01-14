@@ -16,11 +16,17 @@
                 <label for="file-upload"
                        class="relative cursor-pointer bg-white rounded-md font-medium text-sky-600 hover:text-sky-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-sky-500 px-2">
                     <span>Upload a file</span>
-                    <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                    <input id="file-upload" wire:model="{{ $model }}" type="file" class="sr-only">
                 </label>
                 <p class="pl-1">or drag and drop</p>
+                @if(isset($cover))
+                    <p class="pl-1">{{ $cover->temporaryUrl() }}</p>
+                @endif
             </div>
         </div>
     </div>
+    @error($model)
+        <span class="text-sm text-red-400">{{ $message }}</span>
+    @enderror
 </div>
 

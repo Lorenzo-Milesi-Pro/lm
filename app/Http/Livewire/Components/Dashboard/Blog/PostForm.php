@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Components\Dashboard\Blog;
 
 use App\Models\Blog\Domain;
 use App\Models\Blog\Post;
+use Arr;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
@@ -15,18 +16,24 @@ class PostForm extends Component
 
     public bool $show = false;
     public Collection $domains;
-    public Post $post;
     public bool $write = true;
+
+    public string $title = '';
+    public $cover;
+    public ?string $excerpt = null;
+    public ?string $content = null;
+    public ?int $domain = null;
+    public bool $publish = false;
 
     protected $listeners = ['open', 'domainStoreEvent'];
 
     protected $rules = [
-        'post.title' => 'required|unique:blog_posts,title|string|max:255',
-        'post.cover' => 'nullable|image',
-        'post.excerpt' => 'nullable|string|max:255',
-        'post.content' => 'nullable',
-        'post.blog_domain_id' => 'required|numeric|exists:blog_domains,id',
-        'post.published_at' => 'nullable'
+        'title' => 'required|unique:blog_posts,title|string|max:255',
+        'cover' => 'nullable|image|max:2048',
+        'excerpt' => 'nullable|string|max:255',
+        'content' => 'nullable',
+        'domain' => 'required|numeric|exists:blog_domains,id',
+        'publish' => 'nullable'
     ];
 
     public function open()
@@ -47,13 +54,24 @@ class PostForm extends Component
     public function mount()
     {
         $this->domains = Domain::orderBy('name')->get();
-        $this->post = new Post();
     }
 
     public function store()
     {
+        if(is_array($this->cover)) {
+            $this->cover = Arr::last($this->cover);
+        }
+
         $this->validate();
-        $this->post->save();
+
+        $post = new Post();
+        $post->title = $this->title;
+        $post->cover = $this->cover?->store('blog');
+        $post->excerpt = $this->excerpt;
+        $post->content = $this->content;
+        $post->blog_domain_id = $this->domain;
+        $post->published_at = $this->publish ? now() : null;
+        $post->save();
     }
 
     public function domainStoreEvent()

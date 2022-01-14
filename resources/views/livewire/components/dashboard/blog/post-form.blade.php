@@ -11,11 +11,11 @@
 
                     <div class="mt-6 sm:mt-5 space-y-6 sm:space-y-5">
                         <div class="sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                            <x-forms.text-input model="post.title" required>{{ __('Title') }}</x-forms.text-input>
+                            <x-forms.text-input model="title" required>{{ __('Title') }}</x-forms.text-input>
                         </div>
 
                         <div class="sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                            <x-forms.select-input model="post.blog_domain_id" required :options="$domains" value="name" key="id">
+                            <x-forms.select-input model="domain" required :options="$domains" value="name" key="id">
                                 {{ __('Domain') }}
                             </x-forms.select-input>
                         </div>
@@ -23,11 +23,11 @@
                         <livewire:components.dashboard.blog.domain-quick-form />
 
                         <div class="sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                            <x-forms.textarea-input model="post.excerpt">{{ __('Excerpt') }}</x-forms.textarea-input>
+                            <x-forms.textarea-input model="excerpt">{{ __('Excerpt') }}</x-forms.textarea-input>
                         </div>
 
                         <div class="sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                            <x-forms.file-input model="post.cover">{{ __('Cover') }}</x-forms.file-input>
+                            <x-forms.file-input model="cover">{{ __('Cover') }}</x-forms.file-input>
                         </div>
 
                         <div class="sm:grid sm:grid-cols-4 sm:gap-4  sm:border-t sm:border-gray-200 sm:pt-5 sm:items-baseline">
@@ -40,10 +40,10 @@
                                 <div class="max-w-lg space-y-4">
                                     <div class="relative flex items-start">
                                         <div class="flex items-center h-5">
-                                            <input id="published_at" name="published_at" type="checkbox" class="focus:ring-sky-500 h-4 w-4 text-sky-600 border-gray-300 rounded">
+                                            <input id="publish" wire:model="publish" type="checkbox" class="focus:ring-sky-500 h-4 w-4 text-sky-600 border-gray-300 rounded">
                                         </div>
                                         <div class="ml-3 text-sm">
-                                            <label for="published_at" class="font-medium text-gray-700">Published</label>
+                                            <label for="publish" class="font-medium text-gray-700">Published</label>
                                             <p class="text-gray-500">Display on site.</p>
                                         </div>
                                     </div>
@@ -79,16 +79,16 @@
                                             class="text-gray-500 hover:text-gray-900 bg-white hover:bg-gray-100 px-3 py-1.5 border border-transparent text-sm font-medium rounded-md"
                                             @endif
                                             aria-controls="tabs-1-panel-2" role="tab" type="button">Preview</button>
-                                    @error('post.content')
+                                    @error('content')
                                     <span class="text-sm text-red-400">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="mt-2">
                                     @if($write)
                                         <div id="tabs-1-panel-1" class="p-0.5 -m-0.5 rounded-lg" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
-                                            <label for="post.content" class="sr-only">Content</label>
+                                            <label for="content" class="sr-only">Content</label>
                                             <div>
-                                                <textarea wire:model="post.content" name="post.content" id="post.content" class="shadow-sm focus:ring-sky-500 focus:border-sky-500 block w-full sm:text-sm border-gray-300 rounded-md min-h-screen @error('post.content') border-red-300 @enderror" placeholder="Add your content..."></textarea>
+                                                <textarea wire:model="content"  id="content" class="shadow-sm focus:ring-sky-500 focus:border-sky-500 block w-full sm:text-sm border-gray-300 rounded-md min-h-screen @error('content') border-red-300 @enderror" placeholder="Add your content..."></textarea>
                                             </div>
                                         </div>
                                     @else
