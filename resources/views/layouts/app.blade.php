@@ -18,28 +18,44 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased @if(isset($side)) flex @endif">
+    <body class="font-sans antialiased flex">
         <x-jet-banner />
 
         <!-- Page Sidebar -->
-        @if(isset($side))
             <div class="flex flex-col min-h-0 bg-gray-800 w-72">
                 <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
-                    <div class="flex items-center flex-shrink-0 px-4">
-                        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-sky-500-mark-white-text.svg" alt="Workflow">
+                    <div class="flex items-center flex-shrink-0 px-4 space-x-2">
+                        <x-icons.logo class="h-8 w-auto" />
+                        <p class="text-white text-xl font-semibold">
+                            {{ config('app.name') }}
+                        </p>
                     </div>
                     <nav class="mt-5 flex-1 px-2 bg-gray-800 space-y-1" aria-label="Sidebar">
-                        {{ $side }}
+                        <x-link href="{{ route('dashboard') }}"
+                                :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-link>
+                        <div class="h-px bg-gray-500"></div>
+                        <p class="text-gray-300 group flex items-center px-2 py-2 text-sm font-bold rounded-md">
+                            {{ __('Blog') }}
+                        </p>
+                        <x-link href="{{ route('dashboard.blog') }}"
+                                :active="request()->routeIs('dashboard.blog')">
+                            {{ __('Posts') }}
+                        </x-link>
+                        <x-link href="{{ route('dashboard.blog') }}"
+                                :active="request()->routeIs('dashboard.blog.domains')">
+                            {{ __('Domains') }}
+                        </x-link>
+                        <div class="h-px bg-gray-500"></div>
                     </nav>
                 </div>
             </div>
-        @endif
-
 
         <div class="min-h-screen bg-gray-100 flex-1">
-        @livewire('navigation-menu')
+            <livewire:navigation-menu />
 
-        <!-- Page Heading -->
+            <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
