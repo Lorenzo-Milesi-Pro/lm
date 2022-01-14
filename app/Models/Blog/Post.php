@@ -27,7 +27,7 @@ class Post extends Model
 
     protected function readingTime(): Attribute
     {
-        $estimatedReadingTime = Blogging::estimateReadingTime($this->content);
+        $estimatedReadingTime = Blogging::estimateReadingTime($this->content ?? '');
 
         return new Attribute(
             get: fn () => "$estimatedReadingTime->minutes m $estimatedReadingTime->seconds s"

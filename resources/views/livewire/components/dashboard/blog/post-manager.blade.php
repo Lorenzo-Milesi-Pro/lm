@@ -3,4 +3,6 @@
 </div>
 
 <div class="h-8"></div>
+<livewire:components.dashboard.blog.post-index />
+<div class="h-8"></div>
 <livewire:components.dashboard.blog.post-form />

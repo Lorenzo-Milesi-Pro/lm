@@ -1,5 +1,5 @@
 <div>
-    @if(count($posts))
+    @if($posts->count())
         <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -25,42 +25,46 @@
                             </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-16 w-16">
-                                            <img class="h-16 w-16 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
-                                        </div>
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900">
-                                                This is a post
+                            @foreach($posts as $post)
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-16 w-16">
+                                                <img class="h-16 w-16 rounded-full" src="{{ $post->cover }}" alt="">
                                             </div>
-                                            <div class="text-sm text-gray-500">
-                                                this-is-a-post
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    {{ $post->title }}
+                                                </div>
+                                                <div class="text-sm text-gray-500">
+                                                    {{ $post->slug }}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 max-w-sm">
-                                    <div class="text-sm text-gray-900">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid amet deleniti dolorem ea eaque et ex fugiat ipsum laboriosam laborum magnam modi neque perferendis quis quos, repudiandae temporibus totam!
-                                    </div>
-                                    <div class="text-sm text-gray-500">5 min read</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-emerald-100 text-emerald-800">
-                  Active
-                </span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    Admin
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-sky-600 hover:text-sky-900">Edit</a>
-                                </td>
-                            </tr>
-
-                            <!-- More people... -->
+                                    </td>
+                                    <td class="px-6 py-4 max-w-sm">
+                                        <div class="text-sm text-gray-900">
+                                            {{ $post->excerpt }}
+                                        </div>
+                                        <div class="text-sm text-gray-500">
+                                            {{ $post->updated_at->format('d M Y') }}
+                                            &bullet;
+                                            {{ $post->reading_time }}
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        @if($post->published_at)
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-emerald-100 text-emerald-800">Active</span>
+                                        @endif
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $post->blog_domain->name }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="#" class="text-sky-600 hover:text-sky-900">Edit</a>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
