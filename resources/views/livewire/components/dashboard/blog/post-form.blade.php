@@ -10,25 +10,27 @@
                     </div>
 
                     <div class="mt-6 sm:mt-5 space-y-6 sm:space-y-5">
-                        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                        <div class="sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
                             <x-forms.text-input model="post.title" required>{{ __('Title') }}</x-forms.text-input>
                         </div>
 
-                        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                        <div class="sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
                             <x-forms.select-input model="post.blog_domain_id" required :options="$domains" value="name" key="id">
                                 {{ __('Domain') }}
                             </x-forms.select-input>
                         </div>
 
-                        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                        <livewire:components.dashboard.blog.domain-quick-form />
+
+                        <div class="sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
                             <x-forms.textarea-input model="post.excerpt">{{ __('Excerpt') }}</x-forms.textarea-input>
                         </div>
 
-                        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                        <div class="sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
                             <x-forms.file-input model="post.cover">{{ __('Cover') }}</x-forms.file-input>
                         </div>
 
-                        <div class="sm:grid sm:grid-cols-3 sm:gap-4  sm:border-t sm:border-gray-200 sm:pt-5 sm:items-baseline">
+                        <div class="sm:grid sm:grid-cols-4 sm:gap-4  sm:border-t sm:border-gray-200 sm:pt-5 sm:items-baseline">
                             <div>
                                 <div class="text-base font-medium text-gray-900 sm:text-sm sm:text-gray-700" id="label-email">
                                     {{ __('Publication') }}

@@ -970,6 +970,18 @@ select {
 .col-span-6 {
   grid-column: span 6 / span 6;
 }
+.col-start-3 {
+  grid-column-start: 3;
+}
+.col-start-4 {
+  grid-column-start: 4;
+}
+.col-start-8 {
+  grid-column-start: 8;
+}
+.col-start-2 {
+  grid-column-start: 2;
+}
 .-m-3 {
   margin: -0.75rem;
 }
@@ -1211,6 +1223,11 @@ select {
 .w-screen {
   width: 100vw;
 }
+.w-fit {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
 .min-w-0 {
   min-width: 0px;
 }
@@ -1430,6 +1447,9 @@ select {
 .divide-gray-50 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
   border-color: rgb(249 250 251 / var(--tw-divide-opacity));
+}
+.justify-self-end {
+  justify-self: end;
 }
 .overflow-hidden {
   overflow: hidden;
@@ -2655,6 +2675,10 @@ select {
 
   .sm\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sm\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .sm\:items-start {

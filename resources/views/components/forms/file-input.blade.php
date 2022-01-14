@@ -2,7 +2,7 @@
     {{ $slot }} {{ $required ?? '' ? '*' : '' }}
 </label>
 <div class="mt-1 sm:mt-0 sm:col-span-2" x-data="drop_file_component('{{ $model }}')" >
-    <div class="max-w-lg flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
+    <div class="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
          x-on:drop="dropingFile = false"
          x-on:drop.prevent="handleFileDrop($event)"
          x-on:dragover.prevent="dropingFile = true"

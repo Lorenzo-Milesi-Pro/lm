@@ -18,7 +18,7 @@ class PostForm extends Component
     public Post $post;
     public bool $write = true;
 
-    protected $listeners = ['open'];
+    protected $listeners = ['open', 'domainStoreEvent'];
 
     protected $rules = [
         'post.title' => 'required|unique:blog_posts,title|string|max:255',
@@ -54,5 +54,10 @@ class PostForm extends Component
     {
         $this->validate();
         $this->post->save();
+    }
+
+    public function domainStoreEvent()
+    {
+        $this->domains = Domain::orderBy('name')->get();
     }
 }
