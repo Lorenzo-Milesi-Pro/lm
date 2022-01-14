@@ -11,7 +11,7 @@ class DomainQuickForm extends Component
     public Domain $domain;
 
     protected $rules = [
-        'domain.name' => 'required'
+        'domain.name' => 'required|unique:blog_domains,name'
     ];
 
     public function render(): View
