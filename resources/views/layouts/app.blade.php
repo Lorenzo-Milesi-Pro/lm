@@ -31,6 +31,9 @@
                         </p>
                     </div>
                     <nav class="mt-5 flex-1 px-2 bg-gray-800 space-y-1" aria-label="Sidebar">
+                        <x-link href="{{ route('home') }}">
+                            {{ __('Front Office') }}
+                        </x-link>
                         <x-link href="{{ route('dashboard') }}"
                                 :active="request()->routeIs('dashboard')">
                             {{ __('Dashboard') }}
