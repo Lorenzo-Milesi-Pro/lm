@@ -1,8 +1,64 @@
 <div>
-    @if($posts->count())
         <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-8 gap-8 mb-4">
+                        <div class="col-span-3">
+                            <label for="search" class="block text-sm font-medium text-gray-700">
+                                {{ __('Search') }}
+                            </label>
+                            <div class="mt-1">
+                                <input type="text" wire:model="search" id="search" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                            </div>
+                        </div>
+
+                        <div class="col-span-2">
+                            <label for="domain" class="block text-sm font-medium text-gray-700">
+                                {{ __('Domains') }}
+                            </label>
+                            <select id="domain" wire:model="domain" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                <option value="">{{ __('All') }}</option>
+                                @foreach($domains as $domain)
+                                    <option value="{{ $domain->id }}">{{ $domain->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">
+                                {{ __('Status') }}
+                            </label>
+                            <fieldset class="mt-3">
+                                <div class="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
+                                    <div class="flex items-center">
+                                        <input id="status:all" wire:model="status" type="radio" checked value="all"
+                                               class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                                        <label for="status:all" class="ml-3 block text-sm font-medium text-gray-700">
+                                            {{ __('All') }}
+                                        </label>
+                                    </div>
+
+                                    <div class="flex items-center">
+                                        <input id="status:active" wire:model="status" type="radio" value="active"
+                                               class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                                        <label for="status:active" class="ml-3 block text-sm font-medium text-gray-700">
+                                            {{ __('Active') }}
+                                        </label>
+                                    </div>
+
+                                    <div class="flex items-center">
+                                        <input id="status:hidden" wire:model="status" type="radio" value="hidden"
+                                               class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                                        <label for="status:hidden" class="ml-3 block text-sm font-medium text-gray-700">
+                                            {{ __('Hidden') }}
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                    </div>
+                    @if($posts->count())
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
@@ -55,6 +111,8 @@
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         @if($post->published_at)
                                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-emerald-100 text-emerald-800">Active</span>
+                                        @else
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-orange-100 text-orange-800">Hidden</span>
                                         @endif
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -68,8 +126,8 @@
                             </tbody>
                         </table>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
-    @endif
 </div>
