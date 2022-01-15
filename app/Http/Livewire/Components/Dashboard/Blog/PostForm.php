@@ -7,7 +7,6 @@ use App\Models\Blog\Post;
 use Arr;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Http\RedirectResponse;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Str;
@@ -27,7 +26,7 @@ class PostForm extends Component
     public ?int $domain = null;
     public bool $publish = false;
 
-    protected $listeners = ['open', 'domainStoreEvent'];
+    protected $listeners = ['open', 'close', 'domainStoreEvent'];
 
     protected $rules = [
         'title' => 'required|unique:blog_posts,title|string|max:255',
@@ -74,6 +73,9 @@ class PostForm extends Component
         $post->blog_domain_id = $this->domain;
         $post->published_at = $this->publish ? now() : null;
         $post->save();
+
+        $this->emit('postCreated');
+        $this->close();
     }
 
     public function domainStoreEvent()
