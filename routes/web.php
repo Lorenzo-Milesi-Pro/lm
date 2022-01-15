@@ -13,17 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', fn() => view('welcome'))->name('home');
 
-Route::get('/solutions', function () {
-    return view('site.solutions');
-})->name('solutions');
+Route::get('/solutions', fn() => view('site.solutions'))->name('solutions');
 
-Route::get('/contact', function () {
-    return view('site.contact');
-})->name('contact');
+Route::get('/contact', fn() => view('site.contact'))->name('contact');
+
+Route::get('/blog', fn() => view('site.blog'))->name('blog');
 
 Route::middleware(['auth:sanctum', 'verified'])->prefix('dashboard')->group(function () {
     Route::get('/', fn() => view('dashboard'))->name('dashboard');

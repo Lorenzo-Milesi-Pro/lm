@@ -9,7 +9,7 @@
                 Derniers articles
             </h2>
             <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-                Si vous en voulez plus, <a href="#" class="text-sky-500 hover:text-sky-700 hover:underline">c'est par ici</a>
+                Si vous en voulez plus, <a href="{{ route('blog') }}" class="text-sky-500 hover:text-sky-700 hover:underline">c'est par ici</a>
             </p>
         </div>
         <div class="mt-12 max-w-lg mx-auto grid gap-8 lg:grid-cols-3 lg:max-w-none">
