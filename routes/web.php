@@ -24,4 +24,5 @@ Route::get('/blog', fn() => view('site.blog'))->name('blog');
 Route::middleware(['auth:sanctum', 'verified'])->prefix('dashboard')->group(function () {
     Route::get('/', fn() => view('dashboard'))->name('dashboard');
     Route::get('/blog', fn() => view('dashboard.blog'))->name('dashboard.blog');
+    Route::get('/domains', fn() => view('dashboard.domains'))->name('dashboard.domains');
 });

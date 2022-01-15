@@ -43,8 +43,8 @@
                                 :active="request()->routeIs('dashboard.blog')">
                             {{ __('Posts') }}
                         </x-link>
-                        <x-link href="{{ route('dashboard.blog') }}"
-                                :active="request()->routeIs('dashboard.blog.domains')">
+                        <x-link href="{{ route('dashboard.domains') }}"
+                                :active="request()->routeIs('dashboard.domains')">
                             {{ __('Domains') }}
                         </x-link>
                         <div class="h-px bg-gray-500"></div>

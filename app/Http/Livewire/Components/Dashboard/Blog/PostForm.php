@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Components\Dashboard\Blog;
 
+use App\Http\Livewire\Behaviours\WithModalBehaviour;
 use App\Models\Blog\Domain;
 use App\Models\Blog\Post;
 use Arr;
@@ -13,9 +14,8 @@ use Str;
 
 class PostForm extends Component
 {
-    use WithFileUploads;
+    use WithFileUploads, WithModalBehaviour;
 
-    public bool $show = false;
     public Collection $domains;
     public bool $write = true;
 
@@ -36,16 +36,6 @@ class PostForm extends Component
         'domain' => 'required|numeric|exists:blog_domains,id',
         'publish' => 'nullable'
     ];
-
-    public function open()
-    {
-        $this->show = true;
-    }
-
-    public function close()
-    {
-        $this->show = false;
-    }
 
     public function render(): View
     {

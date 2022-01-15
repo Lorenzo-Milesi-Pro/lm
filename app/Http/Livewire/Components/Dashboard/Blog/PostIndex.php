@@ -45,7 +45,7 @@ class PostIndex extends Component
         $this->fetch();
     }
 
-    private function fetch()
+    private function fetch(): void
     {
         $this->posts = resolve(PostRepository::class)->index($this->search, $this->domain, $this->status);
     }
