@@ -45,4 +45,9 @@ class Post extends Model
     {
         return $this->belongsTo(Domain::class);
     }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
 }

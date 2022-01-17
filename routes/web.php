@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Blog\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,8 @@ Route::get('/solutions', fn() => view('site.solutions'))->name('solutions');
 Route::get('/contact', fn() => view('site.contact'))->name('contact');
 
 Route::get('/blog', fn() => view('site.blog'))->name('blog');
+
+Route::get('/post/{post}', fn(Post $post) => view('site.blog.post', compact('post')))->name('post');
 
 Route::middleware(['auth:sanctum', 'verified'])->prefix('dashboard')->group(function () {
     Route::get('/', fn() => view('dashboard'))->name('dashboard');

@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use App\Http\Livewire\Components\Site\Sections\Posts;
+use App\Models\Blog\Domain;
 use App\Models\Blog\Post;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -28,5 +30,19 @@ class PostRepository
         }
 
         return $query->get();
+    }
+
+    public function getPublishedPostsCount(): int
+    {
+        return Post::whereNotNull('published_at')->orderBy('updated_at', 'DESC')->count();
+    }
+
+    public function getPosts(?string $domain): Collection|null
+    {
+        if($domain) {
+            return Domain::whereSlug($domain)?->first()?->published_posts;
+        }
+
+        return Post::whereNotNull('published_at')->orderBy('updated_at', 'DESC')->get();
     }
 }
