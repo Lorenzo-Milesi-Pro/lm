@@ -19,14 +19,14 @@
             </div>
             <div class="mt-6">
                 <nav class="grid gap-y-8">
-                    <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                    <a href="{{ route('solutions') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
                         <x-icons.beaker class="flex-shrink-0 h-6 w-6 text-sky-600" />
                         <span class="ml-3 text-base font-medium text-gray-900">
                             {{ __('Solutions') }}
                         </span>
                     </a>
 
-                    <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                    <a href="{{ route('contact') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
                         <x-icons.phone class="flex-shrink-0 h-6 w-6 text-sky-600" />
                         <span class="ml-3 text-base font-medium text-gray-900">
                             {{ __('Contact') }}
