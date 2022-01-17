@@ -39,6 +39,7 @@
                 </p>
             </div>
             <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
+                <img class="w-full rounded-lg" src="{{ $post->cover }}" alt="" width="1310" height="873">
                 <x-markdown>
                     {!! $post->content !!}
                 </x-markdown>
