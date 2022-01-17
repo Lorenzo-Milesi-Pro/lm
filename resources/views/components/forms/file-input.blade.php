@@ -19,9 +19,6 @@
                     <input id="file-upload" wire:model="{{ $model }}" type="file" class="sr-only">
                 </label>
                 <p class="pl-1">or drag and drop</p>
-                @if(isset($cover))
-                    <p class="pl-1">{{ $cover->temporaryUrl() }}</p>
-                @endif
             </div>
         </div>
     </div>

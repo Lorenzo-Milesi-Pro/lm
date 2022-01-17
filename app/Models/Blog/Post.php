@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Str;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -22,6 +23,13 @@ class Post extends Model
     {
         return new Attribute(
             get: fn ($value) => asset('storage/' . $value)
+        );
+    }
+
+    protected function hasCover(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) =>  (bool) Str::after($this->cover, 'storage'),
         );
     }
 

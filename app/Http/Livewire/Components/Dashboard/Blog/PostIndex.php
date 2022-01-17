@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Components\Dashboard\Blog;
 
 use App\Models\Blog\Domain;
+use App\Models\Blog\Post;
 use App\Repositories\PostRepository;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
@@ -16,7 +17,7 @@ class PostIndex extends Component
     public ?string $domain = null;
     public ?string $status = 'all';
 
-    protected $listeners = ['postCreated'];
+    protected $listeners = ['postStored'];
 
     protected $queryString = [
         'search' => ['except' => ''],
@@ -35,7 +36,7 @@ class PostIndex extends Component
         return view('livewire.components.dashboard.blog.post-index');
     }
 
-    public function postCreated()
+    public function postStored()
     {
         $this->fetch();
     }
@@ -48,5 +49,10 @@ class PostIndex extends Component
     private function fetch(): void
     {
         $this->posts = resolve(PostRepository::class)->index($this->search, $this->domain, $this->status);
+    }
+
+    public function edit(int $post)
+    {
+        $this->emitTo(PostForm::class, 'open', $post);
     }
 }

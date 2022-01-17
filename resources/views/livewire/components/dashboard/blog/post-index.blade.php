@@ -119,7 +119,7 @@
                                         {{ $post->blog_domain->name }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="#" class="text-sky-600 hover:text-sky-900">Edit</a>
+                                        <span wire:click="edit({{ $post->id }})" class="text-sky-600 hover:text-sky-900">Edit</span>
                                     </td>
                                 </tr>
                             @endforeach
