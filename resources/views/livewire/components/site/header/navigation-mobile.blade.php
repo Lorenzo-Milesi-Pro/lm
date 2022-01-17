@@ -20,60 +20,22 @@
             <div class="mt-6">
                 <nav class="grid gap-y-8">
                     <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                        <x-icons.desktop-computer class="flex-shrink-0 h-6 w-6 text-sky-600" />
+                        <x-icons.beaker class="flex-shrink-0 h-6 w-6 text-sky-600" />
                         <span class="ml-3 text-base font-medium text-gray-900">
-                            Site vitrine dynamique
+                            {{ __('Solutions') }}
                         </span>
                     </a>
 
                     <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                        <x-icons.newspaper class="flex-shrink-0 h-6 w-6 text-sky-600" />
+                        <x-icons.phone class="flex-shrink-0 h-6 w-6 text-sky-600" />
                         <span class="ml-3 text-base font-medium text-gray-900">
-                            Blog et ECM
-                        </span>
-                    </a>
-
-                    <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                        <x-icons.shopping-bag class="flex-shrink-0 h-6 w-6 text-sky-600" />
-                        <span class="ml-3 text-base font-medium text-gray-900">
-                            E-Commerce
-                        </span>
-                    </a>
-
-                    <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                        <x-icons.calendar class="flex-shrink-0 h-6 w-6 text-sky-600" />
-                        <span class="ml-3 text-base font-medium text-gray-900">
-                            Réservation en ligne
-                        </span>
-                    </a>
-
-                    <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                        <x-icons.calculator class="flex-shrink-0 h-6 w-6 text-sky-600" />
-                        <span class="ml-3 text-base font-medium text-gray-900">
-                            Gestion de stocks
+                            {{ __('Contact') }}
                         </span>
                     </a>
                 </nav>
             </div>
         </div>
         <div class="py-6 px-5 space-y-6">
-            <div class="grid grid-cols-2 gap-y-4 gap-x-8">
-                <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                    {{ __('Solutions') }}
-                </a>
-
-                <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                    {{ __('Shop') }}
-                </a>
-
-                <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                    {{ __('Experience') }}
-                </a>
-
-                <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                    {{ __('Contact') }}
-                </a>
-            </div>
             <div>
                 @if (Route::has('login'))
                 @auth
