@@ -44,7 +44,7 @@
                         <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                             <div class="flex-1">
                                 <p class="text-sm font-medium text-sky-600">
-                                    <a href="#" class="hover:underline">
+                                    <a href="{{ route('blog', ['d' => $post->blog_domain->slug ]) }}" class="hover:underline">
                                         {{ $post->blog_domain->name }}
                                     </a>
                                 </p>
