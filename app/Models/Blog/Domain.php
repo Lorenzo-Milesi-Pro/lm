@@ -23,7 +23,10 @@ class Domain extends Model
     public function publishedPosts(): Attribute
     {
         return new Attribute(
-            get: fn ($value) => $this->posts()->orderBy('updated_at', 'DESC')->whereNotNull('published_at')->get()
+            get: fn ($value) => $this->posts()
+                ->orderBy('updated_at', 'DESC')
+                ->whereNotNull('published_at')
+                ->paginate()
         );
     }
 

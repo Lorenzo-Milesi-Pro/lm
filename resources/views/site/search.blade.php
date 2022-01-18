@@ -18,7 +18,7 @@
                 </div>
             </div>
 
-            <livewire:components.site.search.matching-posts />
+            <livewire:components.site.search.matching-posts :search="request()->get('search')" />
 
         </div>
     </div>

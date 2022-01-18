@@ -7,9 +7,13 @@ use App\Models\Blog\Post;
 use App\Repositories\PostRepository;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Blog extends Component
 {
+
+    use WithPagination;
+
     public ?string $d = null;
 
     protected $queryString = [
@@ -21,7 +25,7 @@ class Blog extends Component
         return view('livewire.components.site.sections.blog', [
             'domains' => Domain::orderBy('name')->get(),
             'postsCount' => resolve(PostRepository::class)->getPublishedPostsCount(),
-            'posts' => resolve(PostRepository::class)->getPosts($this->d) ?: collect()
+            'posts' => resolve(PostRepository::class)->getPosts($this->d)->withQueryString() ?: collect()
         ]);
     }
 }

@@ -35,4 +35,8 @@
             Oups, il n'y a pas encore d'articles ici, patience, ça arrive ;)
         </p>
     @endforelse
+
+    <div class="my-4">
+        {{ $posts->links() }}
+    </div>
 </div>

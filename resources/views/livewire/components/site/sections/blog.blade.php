@@ -66,11 +66,17 @@
                             </div>
                         </div>
                     </div>
+
                 @empty
                     <p class="col-span-3 mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
                         Oups, il n'y a pas encore d'articles ici, patience, ça arrive ;)
                     </p>
                 @endforelse
+
+            </div>
+
+            <div class="my-4">
+                {{ $posts->links() }}
             </div>
 
         </div>

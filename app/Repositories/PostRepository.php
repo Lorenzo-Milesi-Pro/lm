@@ -10,7 +10,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class PostRepository
 {
-    public function search(?string $search): Collection
+    public function search(?string $search): LengthAwarePaginator
     {
         return Post::query()
             ->whereNotNull('published_at')
@@ -19,7 +19,7 @@ class PostRepository
                     ->orWhere('excerpt', 'like', "%$search%")
                     ->orWhere('content', 'like', "%$search%");
             })
-            ->get();
+            ->paginate();
     }
 
     public function index(?string $search, ?string $domain, ?string $status): LengthAwarePaginator
@@ -42,7 +42,7 @@ class PostRepository
                 break;
         }
 
-        return $query->paginate(3);
+        return $query->paginate();
     }
 
     public function getPublishedPostsCount(): int
@@ -50,12 +50,12 @@ class PostRepository
         return Post::whereNotNull('published_at')->orderBy('updated_at', 'DESC')->count();
     }
 
-    public function getPosts(?string $domain): Collection|null
+    public function getPosts(?string $domain): LengthAwarePaginator|null
     {
         if($domain) {
             return Domain::whereSlug($domain)?->first()?->published_posts;
         }
 
-        return Post::whereNotNull('published_at')->orderBy('updated_at', 'DESC')->get();
+        return Post::whereNotNull('published_at')->orderBy('updated_at', 'DESC')->paginate();
     }
 }
