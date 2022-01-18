@@ -72,5 +72,6 @@
                     </p>
                 @endforelse
             </div>
+
         </div>
     </div>

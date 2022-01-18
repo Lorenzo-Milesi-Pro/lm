@@ -9,6 +9,18 @@ use Illuminate\Database\Eloquent\Collection;
 
 class PostRepository
 {
+    public function search(?string $search): Collection
+    {
+        return Post::query()
+            ->whereNotNull('published_at')
+            ->where(function ($query) use ($search) {
+                $query->where('title', 'like', "%$search%")
+                    ->orWhere('excerpt', 'like', "%$search%")
+                    ->orWhere('content', 'like', "%$search%");
+            })
+            ->get();
+    }
+
     public function index(?string $search, ?string $domain, ?string $status): Collection
     {
         $query = Post::orderBy('updated_at', 'DESC')
