@@ -1191,6 +1191,10 @@ select {
   margin-left: 1px;
   margin-right: 1px;
 }
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }

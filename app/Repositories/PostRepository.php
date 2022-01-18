@@ -6,6 +6,7 @@ use App\Http\Livewire\Components\Site\Sections\Posts;
 use App\Models\Blog\Domain;
 use App\Models\Blog\Post;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class PostRepository
 {
@@ -21,7 +22,7 @@ class PostRepository
             ->get();
     }
 
-    public function index(?string $search, ?string $domain, ?string $status): Collection
+    public function index(?string $search, ?string $domain, ?string $status): LengthAwarePaginator
     {
         $query = Post::orderBy('updated_at', 'DESC')
             ->where('title', 'like', "%$search%");
@@ -41,7 +42,7 @@ class PostRepository
                 break;
         }
 
-        return $query->get();
+        return $query->paginate(3);
     }
 
     public function getPublishedPostsCount(): int

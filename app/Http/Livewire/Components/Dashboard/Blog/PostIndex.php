@@ -7,11 +7,14 @@ use App\Models\Blog\Post;
 use App\Repositories\PostRepository;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class PostIndex extends Component
 {
-    public Collection $posts;
+    use WithPagination;
+
     public Collection $domains;
     public ?string $search = null;
     public ?string $domain = null;
@@ -33,7 +36,9 @@ class PostIndex extends Component
 
     public function render(): View
     {
-        return view('livewire.components.dashboard.blog.post-index');
+        return view('livewire.components.dashboard.blog.post-index', [
+            'posts' => $this->fetch()
+        ]);
     }
 
     public function postStored()
@@ -46,9 +51,11 @@ class PostIndex extends Component
         $this->fetch();
     }
 
-    private function fetch(): void
+    private function fetch(): LengthAwarePaginator
     {
-        $this->posts = resolve(PostRepository::class)->index($this->search, $this->domain, $this->status);
+         return resolve(PostRepository::class)
+             ->index($this->search, $this->domain, $this->status)
+             ->withQueryString();
     }
 
     public function edit(int $post)
