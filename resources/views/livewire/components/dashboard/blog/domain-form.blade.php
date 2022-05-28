@@ -17,7 +17,7 @@
 
                         <div class="mt-6 sm:mt-5 space-y-6 sm:space-y-5">
                             <div class="sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                                <x-forms.text-input model="domain.name" required>{{ __('Name') }}</x-forms.text-input>
+                                <x-forms.text-input model="name" required>{{ __('Name') }}</x-forms.text-input>
                             </div>
                         </div>
                     </div>

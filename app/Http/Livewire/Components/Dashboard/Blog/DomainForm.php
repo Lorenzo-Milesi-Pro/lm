@@ -6,17 +6,18 @@ use App\Http\Livewire\Behaviours\WithModalBehaviour;
 use App\Models\Blog\Domain;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
+use Str;
 
 class DomainForm extends Component
 {
     use WithModalBehaviour;
 
-    public Domain $domain;
+    public string $name = '';
 
     protected $listeners = ['open', 'close'];
 
     protected $rules = [
-        'domain.name' => 'required|unique:blog_domains'
+        'name' => 'required|string|min:3|max:255|unique:blog_domains'
     ];
 
     public function render(): View
@@ -27,7 +28,10 @@ class DomainForm extends Component
     public function store(): void
     {
         $this->validate();
-        $this->domain->save();
+        $domain = new Domain();
+        $domain->name = $this->name;
+        $domain->slug = Str::slug($this->name);
+        $domain->save();
         $this->emit('domainCreated');
         $this->close();
     }
