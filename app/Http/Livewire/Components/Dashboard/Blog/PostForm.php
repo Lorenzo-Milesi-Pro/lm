@@ -43,7 +43,7 @@ class PostForm extends Component
 
     public function store(): void
     {
-        if(is_array($this->cover)) {
+        if (is_array($this->cover)) {
             $this->cover = Arr::last($this->cover);
         }
 
@@ -55,7 +55,11 @@ class PostForm extends Component
         $this->post->content = $this->content;
         $this->post->blog_domain_id = $this->domain;
         $this->post->published_at = $this->publish ? now() : null;
-        $this->post->preview = $this->hasPreview ? Str::uuid() : null;
+        if ($this->hasPreview) {
+            $this->post->preview = is_null($this->post->preview) ? Str::uuid() : $this->post->preview;
+        } else {
+            $this->post->preview = null;
+        }
         $this->post->save();
 
         $this->emit('postStored');
@@ -69,21 +73,21 @@ class PostForm extends Component
 
     public function updatedCover()
     {
-        if(is_array($this->cover)) {
+        if (is_array($this->cover)) {
             $this->tempCover = Arr::last($this->cover)->temporaryUrl();
         } else {
             $this->tempCover = $this->cover->temporaryUrl();
         }
     }
 
-
     private function storeCoverAndGetPath(): string|null
     {
-        if(is_string($this->cover)) {
+        if (is_string($this->cover)) {
             return Str::after($this->cover, 'storage/');
         }
 
         $path = $this->cover?->store('public/blog');
+
         return is_null($path) ? null : Str::after($path, 'public/');
     }
 
@@ -103,7 +107,7 @@ class PostForm extends Component
 
     private function validationRules(): array
     {
-        $uniqueRule = $this->post->id ? 'unique:blog_posts,title,' . $this->post->id : 'unique:blog_posts,title';
+        $uniqueRule = $this->post->id ? 'unique:blog_posts,title,'.$this->post->id : 'unique:blog_posts,title';
 
         return [
             'title' => "required|$uniqueRule|string|max:255",
@@ -111,7 +115,7 @@ class PostForm extends Component
             'excerpt' => 'nullable|string|max:255',
             'content' => 'nullable',
             'domain' => 'required|numeric|exists:blog_domains,id',
-            'publish' => 'nullable'
+            'publish' => 'nullable',
         ];
     }
 }
