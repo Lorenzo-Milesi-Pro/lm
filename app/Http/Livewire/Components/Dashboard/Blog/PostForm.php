@@ -5,12 +5,12 @@ namespace App\Http\Livewire\Components\Dashboard\Blog;
 use App\Http\Livewire\Behaviours\WithModalBehaviour;
 use App\Models\Blog\Domain;
 use App\Models\Blog\Post;
-use Arr;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Str;
 
 class PostForm extends Component
 {
@@ -27,6 +27,7 @@ class PostForm extends Component
     public ?string $content = null;
     public ?int $domain = null;
     public bool $publish = false;
+    public bool $hasPreview = false;
 
     protected $listeners = ['open', 'close', 'domainStoreEvent'];
 
@@ -54,6 +55,7 @@ class PostForm extends Component
         $this->post->content = $this->content;
         $this->post->blog_domain_id = $this->domain;
         $this->post->published_at = $this->publish ? now() : null;
+        $this->post->preview = $this->hasPreview ? Str::uuid() : null;
         $this->post->save();
 
         $this->emit('postStored');
@@ -95,6 +97,7 @@ class PostForm extends Component
         $this->content = $this->post->content;
         $this->domain = $this->post->blog_domain_id;
         $this->publish = !is_null($this->post->published_at);
+        $this->hasPreview = !is_null($this->post->preview);
         $this->show = true;
     }
 

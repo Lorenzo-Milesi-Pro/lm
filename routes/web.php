@@ -24,6 +24,16 @@ Route::get('/blog', fn() => view('site.blog'))->name('blog');
 
 Route::get('/post/{post}', fn(Post $post) => view('site.blog.post', compact('post')))->name('post');
 
+Route::get('/post/preview/{uuid}', function (string $uuid) {
+    $post = Post::where('preview', '=', $uuid)->firstOrFail();
+
+    if($post->published_at) {
+        return redirect(route('post', $post));
+    }
+
+    return view('site.blog.post', compact('post'));
+})->name('preview');
+
 Route::get('/search', fn() => view('site.search'))->name('search');
 
 Route::middleware(['auth:sanctum', 'verified'])->prefix('dashboard')->group(function () {

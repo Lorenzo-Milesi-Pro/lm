@@ -118,8 +118,11 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         {{ $post->blog_domain->name }}
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <span wire:click="edit({{ $post->id }})" class="text-sky-600 hover:text-sky-900">Edit</span>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-8">
+                                        @if ($post->preview)
+                                            <a class="text-sky-600 hover:text-sky-900" href="{{ route('preview', $post->preview) }}">Preview</a>
+                                        @endif
+                                        <span wire:click="edit({{ $post->id }})" class="cursor-pointer text-sky-600 hover:text-sky-900">Edit</span>
                                     </td>
                                 </tr>
                             @endforeach

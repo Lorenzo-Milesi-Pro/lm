@@ -65,6 +65,16 @@
                                                 <p class="text-gray-500">Display on site.</p>
                                             </div>
                                         </div>
+
+                                        <div class="relative flex items-start">
+                                            <div class="flex items-center h-5">
+                                                <input id="hasPreview" wire:model="hasPreview" type="checkbox" class="focus:ring-sky-500 h-4 w-4 text-sky-600 border-gray-300 rounded">
+                                            </div>
+                                            <div class="ml-3 text-sm">
+                                                <label for="hasPreview" class="font-medium text-gray-700">Public Preview</label>
+                                                <p class="text-gray-500">Generate a public preview link.</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
