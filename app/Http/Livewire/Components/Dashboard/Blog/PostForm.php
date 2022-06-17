@@ -63,6 +63,11 @@ class PostForm extends Component
         $this->post->save();
 
         $this->emit('postStored');
+    }
+
+    public function storeAndClose(): void
+    {
+        $this->store();
         $this->close();
     }
 
