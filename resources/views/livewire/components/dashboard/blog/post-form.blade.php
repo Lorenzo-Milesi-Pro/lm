@@ -94,7 +94,7 @@
                                         <button id="tabs-1-tab-1"
                                                 wire:click="$set('write', true)"
                                                 @if($write)
-                                                class="text-gray-900 bg-gray-100 hover:bg-gray-200"
+                                                class="text-gray-900 bg-gray-100 hover:bg-gray-200 px-3 py-1.5 rounded-md"
                                                 @else
                                                 class="text-gray-500 hover:text-gray-900 bg-white hover:bg-gray-100 px-3 py-1.5 border border-transparent text-sm font-medium rounded-md"
                                                 @endif
@@ -102,11 +102,14 @@
                                         <button id="tabs-1-tab-2"
                                                 wire:click="$set('write', false)"
                                                 @if(!$write)
-                                                class="text-gray-900 bg-gray-100 hover:bg-gray-200"
+                                                class="text-gray-900 bg-gray-100 hover:bg-gray-200 px-3 py-1.5 rounded-md"
                                                 @else
                                                 class="text-gray-500 hover:text-gray-900 bg-white hover:bg-gray-100 px-3 py-1.5 border border-transparent text-sm font-medium rounded-md"
                                                 @endif
                                                 aria-controls="tabs-1-panel-2" role="tab" type="button">Preview</button>
+                                        <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
+                                            Save
+                                        </button>
                                         @error('content')
                                         <span class="text-sm text-red-400">{{ $message }}</span>
                                         @enderror
