@@ -22,7 +22,15 @@ Route::get('/contact', fn() => view('site.contact'))->name('contact');
 
 Route::get('/blog', fn() => view('site.blog'))->name('blog');
 
-Route::get('/post/{post}', fn(Post $post) => view('site.blog.post', compact('post')))->name('post');
+Route::get('/post/{post}', function(Post $post)  {
+
+    if ($post->published_at) {
+        return view('site.blog.post', compact('post'));
+    }
+
+    abort('404');
+
+} )->name('post');
 
 Route::get('/post/preview/{uuid}', function (string $uuid) {
     $post = Post::where('preview', '=', $uuid)->firstOrFail();
