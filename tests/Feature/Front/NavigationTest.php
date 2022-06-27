@@ -51,3 +51,4 @@ it('has toolbox navigation', function () {
     Livewire::test(Navigation::class)->assertSee(route('toolbox'));
     Livewire::test(NavigationMobile::class)->assertSee(route('toolbox'));
 });
+

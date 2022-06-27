@@ -10,13 +10,7 @@ use Livewire\Livewire;
 
 uses(RefreshDatabase::class);
 
-
-/**
-it('filters out toolbox domain articles on recent posts', function () {
-    // Given we have 2 posts
-    // One from any domain the other from 'Toolbox' domain
-    // Posts Section should not show Toolbox's article
-
+it('filters out toolbox domain posts on recent posts component', function () {
     $post = Post::factory()->create(['published_at' => now()]);
     $tool = Post::factory()->create([
         'blog_domain_id' => Domain::factory()->create(['name' => 'Toolbox', 'slug' => 'toolbox'])->id,
@@ -27,11 +21,7 @@ it('filters out toolbox domain articles on recent posts', function () {
     Livewire::test(Posts::class)->assertSee($post->title);
 });
 
-it('filters out toolbox domain articles on blog component', function () {
-    // Given we have 2 posts
-    // One from any domain the other from 'Toolbox' domain
-    // Blog Section should not show Toolbox's article noor 'Toolbox' filter
-
+it('filters out toolbox domain posts on blog component', function () {
     $post = Post::factory()->create(['published_at' => now()]);
     $tool = Post::factory()->create([
         'blog_domain_id' => Domain::factory()->create(['name' => 'Toolbox', 'slug' => 'toolbox'])->id,
@@ -42,4 +32,3 @@ it('filters out toolbox domain articles on blog component', function () {
     Livewire::test(Blog::class)->assertDontSee($tool->title);
     Livewire::test(Blog::class)->assertSee($post->title);
 });
-*/

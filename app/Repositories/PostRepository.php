@@ -73,7 +73,13 @@ class PostRepository
 
     public function getToolboxPosts(): LengthAwarePaginator|null
     {
-        
         return Domain::whereSlug('toolbox')?->first()?->published_posts;
+    }
+
+    public function getToolboxPostsCount(): int
+    {
+        $count = Domain::whereSlug('toolbox')?->first()?->published_posts->count();
+
+        return $count ?: 0;
     }
 }

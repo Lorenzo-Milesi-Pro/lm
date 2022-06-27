@@ -78,4 +78,21 @@ it('counts published posts except for toolbox articles', function () {
     $this->assertEquals(1, app(PostRepository::class)->getPublishedPostsCount());
 });
 
+it('counts published toolbox posts', function () {
+    Post::factory(2)->create(['published_at' => now()]);
+    $tool = Post::factory()->create([
+        'blog_domain_id' => Domain::factory()->create(['name' => 'Toolbox', 'slug' => 'toolbox'])->id,
+        'published_at' => now(),
+    ]);
+    $unpublished = Post::factory()->create();
+
+    $this->assertEquals(1, app(PostRepository::class)->getToolboxPostsCount());
+});
+
+it('returns 0 when no published toolbox posts', function () {
+    Post::factory(2)->create(['published_at' => now()]);
+    $unpublished = Post::factory()->create();
+
+    $this->assertEquals(0, app(PostRepository::class)->getToolboxPostsCount());
+});
 
