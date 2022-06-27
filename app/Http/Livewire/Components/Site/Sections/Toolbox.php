@@ -15,7 +15,7 @@ class Toolbox extends Component
     public function render(): View
     {
         return view('livewire.components.site.sections.toolbox', [
-            'postsCount' => resolve(PostRepository::class)->getPublishedToolboxPostsCount(),
+            'postsCount' => resolve(PostRepository::class)->getToolboxPostsCount(),
             'posts' => resolve(PostRepository::class)->getToolboxPosts() ?: collect()
         ]);
     }
