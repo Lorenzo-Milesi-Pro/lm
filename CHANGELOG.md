@@ -1,3 +1,13 @@
+## 0.2.0 (2022-06-27)
+
+### Feat
+
+- **toolbox**: show toolbox posts on frontend
+- **front**: set toolbox component to toolbox page
+- **post**: filtering toolbox posts only
+- **toolbox**: filter toolbox posts from most recent posts and blog posts
+- **navigation**: add toolbox link and page
+
 ## 0.1.0 (2022-06-27)
 
 ### Fix
