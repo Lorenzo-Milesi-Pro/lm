@@ -70,4 +70,10 @@ class PostRepository
             ->thenReturn()
             ->paginate();
     }
+
+    public function getToolboxPosts(): LengthAwarePaginator|null
+    {
+        
+        return Domain::whereSlug('toolbox')?->first()?->published_posts;
+    }
 }
