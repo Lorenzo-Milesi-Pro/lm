@@ -1,3 +1,9 @@
+## 0.4.0 (2022-06-28)
+
+### Feat
+
+- **front**: posts in 2nd place on welcome page
+
 ## 0.3.0 (2022-06-27)
 
 ### Feat
