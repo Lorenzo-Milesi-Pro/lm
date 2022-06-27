@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Components\Site\Sections\Blog;
+use App\Http\Livewire\Components\Site\Sections\Toolbox;
 use App\Http\Livewire\Components\Site\Sections\ContactForm;
 use App\Http\Livewire\Components\Site\Sections\CTA;
 use App\Http\Livewire\Components\Site\Sections\FeatureCenter2x2Grid;
@@ -52,6 +53,12 @@ test('solutions has CTA section', function () {
 
 test('blog has blog section', function () {
     $this->get(route('blog'))->assertSeeLivewire(Blog::class);
+});
+
+// Toolbox
+//
+test('blog has toolbox section', function () {
+    $this->get(route('toolbox'))->assertSeeLivewire(Toolbox::class);
 });
 
 // Contact

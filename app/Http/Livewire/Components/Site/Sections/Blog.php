@@ -23,7 +23,7 @@ class Blog extends Component
     public function render(): View
     {
         return view('livewire.components.site.sections.blog', [
-            'domains' => Domain::orderBy('name')->get(),
+            'domains' => Domain::orderBy('name')->where('slug', '<>', 'toolbox')->get(),
             'postsCount' => resolve(PostRepository::class)->getPublishedPostsCount(),
             'posts' => resolve(PostRepository::class)->getPosts($this->d)->withQueryString() ?: collect()
         ]);

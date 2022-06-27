@@ -5,8 +5,12 @@ namespace App\Repositories;
 use App\Http\Livewire\Components\Site\Sections\Posts;
 use App\Models\Blog\Domain;
 use App\Models\Blog\Post;
+use App\Pipes\Post\Active;
+use App\Pipes\Post\ExceptToolbox;
+use App\Pipes\Post\MostRecent;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pipeline\Pipeline;
 
 class PostRepository
 {
@@ -47,15 +51,23 @@ class PostRepository
 
     public function getPublishedPostsCount(): int
     {
-        return Post::whereNotNull('published_at')->orderBy('updated_at', 'DESC')->count();
+        return app(Pipeline::class)
+            ->send(Post::query())
+            ->through([ ExceptToolbox::class, Active::class, MostRecent::class ])
+            ->thenReturn()
+            ->count();
     }
 
-    public function getPosts(?string $domain): LengthAwarePaginator|null
+    public function getPosts(?string $domain = null): LengthAwarePaginator|null
     {
         if($domain) {
             return Domain::whereSlug($domain)?->first()?->published_posts;
         }
 
-        return Post::whereNotNull('published_at')->orderBy('updated_at', 'DESC')->paginate();
+        return app(Pipeline::class)
+            ->send(Post::query())
+            ->through([ ExceptToolbox::class, Active::class, MostRecent::class ])
+            ->thenReturn()
+            ->paginate();
     }
 }
