@@ -76,7 +76,7 @@ class PostRepository
         return Domain::whereSlug('toolbox')?->first()?->published_posts;
     }
 
-    public function getToolboxPostsCount(): int
+    public function getPublishedToolboxPostsCount(): int
     {
         $count = Domain::whereSlug('toolbox')?->first()?->published_posts->count();
 
