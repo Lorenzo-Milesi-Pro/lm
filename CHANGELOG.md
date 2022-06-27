@@ -1,3 +1,9 @@
+## 0.3.0 (2022-06-27)
+
+### Feat
+
+- **posts**: add views and viewed_at
+
 ## 0.2.0 (2022-06-27)
 
 ### Feat
