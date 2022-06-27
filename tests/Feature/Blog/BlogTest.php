@@ -5,6 +5,7 @@ use App\Http\Livewire\Components\Site\Sections\Posts;
 use App\Models\Blog\Domain;
 use App\Models\Blog\Post;
 use App\Repositories\PostRepository;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
 
@@ -31,4 +32,27 @@ it('filters out toolbox domain posts on blog component', function () {
     Livewire::test(Blog::class)->assertDontSee('Toolbox');
     Livewire::test(Blog::class)->assertDontSee($tool->title);
     Livewire::test(Blog::class)->assertSee($post->title);
+});
+
+it('increases post views count everytime someone opens post link', function () {
+    $post = Post::factory()->create(['published_at' => now()]);
+    $this->assertEquals(0, $post->views);
+    $this->get(route('post', $post));
+    $post->refresh();
+    $this->assertEquals(1, $post->views);
+});
+
+it('updates post viewed_at everytime someone opens post link', function () {
+    $post = Post::factory()->create(['published_at' => now()]);
+    $this->assertEquals(null, $post->viewed_at);
+    $this->get(route('post', $post));
+    $post->refresh();
+    $this->assertEquals(now(), $post->viewed_at);
+    $oldViewedAt = $post->viewed_at;
+    $theDayAfter = Carbon::now()->addDay(1);
+    Carbon::setTestNow($theDayAfter);
+    $this->get(route('post', $post));
+    $post->refresh();
+    $this->assertEquals(now(), $post->viewed_at);
+    Carbon::setTestNow();
 });

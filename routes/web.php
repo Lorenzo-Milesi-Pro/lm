@@ -27,6 +27,9 @@ Route::get('/toolbox', fn() => view('site.toolbox'))->name('toolbox');
 Route::get('/post/{post}', function(Post $post)  {
 
     if ($post->published_at) {
+        $post->views++;
+        $post->viewed_at = now();
+        $post->save();
         return view('site.blog.post', compact('post'));
     }
 
