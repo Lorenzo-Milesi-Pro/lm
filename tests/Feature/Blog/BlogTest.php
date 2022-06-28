@@ -56,3 +56,14 @@ it('updates post viewed_at everytime someone opens post link', function () {
     $this->assertEquals(now(), $post->viewed_at);
     Carbon::setTestNow();
 });
+
+it('does not change updated at everytime someone opens post link', function () {
+    $post = Post::factory()->create(['published_at' => now()]);
+    $lastUpdateDate = $post->updated_at;
+    Carbon::setTestNow(Carbon::now()->addDay());
+    $this->get(route('post', $post));
+    $post->refresh();
+    $this->assertEquals($lastUpdateDate, $post->updated_at);
+    Carbon::setTestNow();
+});
+
