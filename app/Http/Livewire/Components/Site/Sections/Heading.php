@@ -7,7 +7,9 @@ use Livewire\Component;
 class Heading extends Component
 {
     public ?string $section;
+
     public ?string $title;
+
     public ?string $description;
 
     public function render()

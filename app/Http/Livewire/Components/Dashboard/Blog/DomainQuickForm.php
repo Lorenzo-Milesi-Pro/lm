@@ -11,7 +11,7 @@ class DomainQuickForm extends Component
     public Domain $domain;
 
     protected $rules = [
-        'domain.name' => 'required|unique:blog_domains,name'
+        'domain.name' => 'required|unique:blog_domains,name',
     ];
 
     public function render(): View
@@ -28,7 +28,7 @@ class DomainQuickForm extends Component
     {
         $this->validate();
         $this->domain->save();
-        $this->emitUp( 'domainStoreEvent');
+        $this->emitUp('domainStoreEvent');
         $this->domain = new Domain();
     }
 }

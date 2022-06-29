@@ -7,11 +7,13 @@ use Livewire\Component;
 class NavigationMobile extends Component
 {
     const IN = 'slideInDown';
+
     const OUT = 'slideOutUp';
 
     protected $listeners = ['openMenu'];
 
     public string $animation = self::OUT;
+
     public bool $hidden = true;
 
     public function render()

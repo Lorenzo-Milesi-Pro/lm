@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Components\Dashboard\Blog;
 
 use App\Models\Blog\Domain;
-use App\Models\Blog\Post;
 use App\Repositories\PostRepository;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
@@ -16,8 +15,11 @@ class PostIndex extends Component
     use WithPagination;
 
     public Collection $domains;
+
     public ?string $search = null;
+
     public ?string $domain = null;
+
     public ?string $status = 'all';
 
     protected $listeners = ['postStored'];
@@ -25,7 +27,7 @@ class PostIndex extends Component
     protected $queryString = [
         'search' => ['except' => ''],
         'domain' => ['except' => ''],
-        'status' => ['except' => 'all']
+        'status' => ['except' => 'all'],
     ];
 
     public function mount()
@@ -37,7 +39,7 @@ class PostIndex extends Component
     public function render(): View
     {
         return view('livewire.components.dashboard.blog.post-index', [
-            'posts' => $this->fetch()
+            'posts' => $this->fetch(),
         ]);
     }
 
@@ -53,7 +55,7 @@ class PostIndex extends Component
 
     private function fetch(): LengthAwarePaginator
     {
-         return resolve(PostRepository::class)
+        return resolve(PostRepository::class)
              ->index($this->search, $this->domain, $this->status)
              ->withQueryString();
     }

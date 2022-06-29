@@ -10,6 +10,7 @@ use Livewire\Component;
 class ContactForm extends Component
 {
     public Message $message;
+
     public bool $isSent = false;
 
     protected $rules = [
@@ -20,7 +21,7 @@ class ContactForm extends Component
         'message.phone' => 'nullable|max:20',
         'message.content' => 'required|max:500',
         'message.budget' => 'nullable|max:255',
-        'message.channel' => 'nullable|max:255'
+        'message.channel' => 'nullable|max:255',
     ];
 
     protected $messages = [

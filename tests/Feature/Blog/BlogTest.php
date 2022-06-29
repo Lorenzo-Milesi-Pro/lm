@@ -4,7 +4,6 @@ use App\Http\Livewire\Components\Site\Sections\Blog;
 use App\Http\Livewire\Components\Site\Sections\Posts;
 use App\Models\Blog\Domain;
 use App\Models\Blog\Post;
-use App\Repositories\PostRepository;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
@@ -66,4 +65,3 @@ it('does not change updated at everytime someone opens post link', function () {
     $this->assertEquals($lastUpdateDate, $post->updated_at);
     Carbon::setTestNow();
 });
-

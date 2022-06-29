@@ -8,7 +8,6 @@ abstract class HeroIcon extends Component
 {
     public function __construct(
         public int $thickness = 2,
-    )
-    {
+    ) {
     }
 }

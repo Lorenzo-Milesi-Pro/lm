@@ -11,7 +11,7 @@ class ExceptToolbox
     {
         $toolbox = Domain::whereSlug('toolbox')->first();
 
-        if(! $toolbox) {
+        if (! $toolbox) {
             return $next($request);
         }
 
