@@ -1,3 +1,14 @@
+## 0.5.0 (2022-06-29)
+
+### Feat
+
+- **posts**: get most viewed, most recently viewed and most recent posts
+- **post**: get most recently viewed posts
+
+### Fix
+
+- **post**: do not update post updated_at when set views and viewed_at
+
 ## 0.4.0 (2022-06-28)
 
 ### Feat
