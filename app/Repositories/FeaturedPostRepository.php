@@ -36,9 +36,36 @@ class FeaturedPostRepository
        return $mostRecenltyViewedPosts->first();
     }
 
-
-    public function getFeaturedPost(): Post
+    public function getLastUpdatedPost(): ?Post
     {
-        return Post::latest()->first();
+       $lastUpatedPosts = app(Pipeline::class)
+            ->send(Post::query())
+            ->through([ Active::class, MostRecent::class ])
+            ->thenReturn()
+            ->get();
+
+       return $lastUpatedPosts->first();
+    }
+
+    public function getMostRecentPost(): ?Post
+    {
+        $posts = app(Pipeline::class)
+            ->send(Post::query())
+            ->through([ Active::class, MostRecent::class ])
+            ->thenReturn()
+            ->take(3)
+            ->get();
+
+        if ($posts?->first()?->slug === $this->getMostViewedPost()?->slug) {
+
+            if(isset($posts[1]) && $posts[1]?->slug === $this->getMostRecentlyViewedPost()?->slug) {
+                return $posts[2] ?? null;
+            }
+ 
+            return $posts[1] ?? null;
+        }
+
+
+        return $posts->first();
     }
 }
