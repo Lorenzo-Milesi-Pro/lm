@@ -95,4 +95,3 @@ it('returns 0 when no published toolbox posts', function () {
 
     $this->assertEquals(0, app(PostRepository::class)->getToolboxPostsCount());
 });
-

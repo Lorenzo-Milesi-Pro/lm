@@ -29,6 +29,7 @@ Route::get('/post/{post}', function(Post $post)  {
     if ($post->published_at) {
         $post->views++;
         $post->viewed_at = now();
+        $post->timestamps = false;
         $post->save();
         return view('site.blog.post', compact('post'));
     }
