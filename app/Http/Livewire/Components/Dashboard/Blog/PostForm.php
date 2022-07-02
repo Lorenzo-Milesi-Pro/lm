@@ -17,25 +17,15 @@ class PostForm extends Component
     use WithFileUploads, WithModalBehaviour;
 
     public ?Post $post = null;
-
     public Collection $domains;
-
     public bool $write = true;
-
     public string $title = '';
-
     public $cover;
-
     public ?string $tempCover = null;
-
     public ?string $excerpt = null;
-
     public ?string $content = null;
-
     public ?int $domain = null;
-
     public bool $publish = false;
-
     public bool $hasPreview = false;
 
     protected $listeners = ['open', 'close', 'domainStoreEvent'];
@@ -114,8 +104,8 @@ class PostForm extends Component
         $this->excerpt = $this->post->excerpt;
         $this->content = $this->post->content;
         $this->domain = $this->post->blog_domain_id;
-        $this->publish = ! is_null($this->post->published_at);
-        $this->hasPreview = ! is_null($this->post->preview);
+        $this->publish = !is_null($this->post->published_at);
+        $this->hasPreview = !is_null($this->post->preview);
         $this->show = true;
     }
 
