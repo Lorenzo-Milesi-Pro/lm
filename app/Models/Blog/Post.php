@@ -22,7 +22,7 @@ class Post extends Model
     protected function cover(): Attribute
     {
         return new Attribute(
-            get: fn ($value) => asset('storage/' . $value)
+            get: fn ($value) => asset('storage/'.$value)
         );
     }
 

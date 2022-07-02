@@ -2,13 +2,11 @@
 
 namespace App\Repositories;
 
-use App\Http\Livewire\Components\Site\Sections\Posts;
 use App\Models\Blog\Domain;
 use App\Models\Blog\Post;
 use App\Pipes\Post\Active;
 use App\Pipes\Post\ExceptToolbox;
 use App\Pipes\Post\MostRecent;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pipeline\Pipeline;
 
@@ -26,12 +24,11 @@ class PostRepository
             ->paginate();
     }
 
-    public function index(?string $search, ?string $domain, ?string $status): LengthAwarePaginator
+    public function index(?string $search = null, ?string $domain = null, ?string $status = null): LengthAwarePaginator
     {
-        $query = Post::orderBy('updated_at', 'DESC')
-            ->where('title', 'like', "%$search%");
+        $query = Post::orderBy('updated_at', 'DESC')->where('title', 'like', "%$search%");
 
-        if($domain) {
+        if ($domain) {
             $query->where('blog_domain_id', $domain);
         }
 
@@ -53,20 +50,20 @@ class PostRepository
     {
         return app(Pipeline::class)
             ->send(Post::query())
-            ->through([ ExceptToolbox::class, Active::class, MostRecent::class ])
+            ->through([ExceptToolbox::class, Active::class, MostRecent::class])
             ->thenReturn()
             ->count();
     }
 
     public function getPosts(?string $domain = null): LengthAwarePaginator|null
     {
-        if($domain) {
+        if ($domain) {
             return Domain::whereSlug($domain)?->first()?->published_posts;
         }
 
         return app(Pipeline::class)
             ->send(Post::query())
-            ->through([ ExceptToolbox::class, Active::class, MostRecent::class ])
+            ->through([ExceptToolbox::class, Active::class, MostRecent::class])
             ->thenReturn()
             ->paginate();
     }

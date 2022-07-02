@@ -7,7 +7,9 @@ use Livewire\Component;
 class FeatureCenter2x2Grid extends Component
 {
     public ?string $section;
+
     public ?string $title;
+
     public ?string $description;
 
     public function render()

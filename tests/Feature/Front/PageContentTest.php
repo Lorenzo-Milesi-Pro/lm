@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Livewire\Components\Site\Sections\Blog;
-use App\Http\Livewire\Components\Site\Sections\Toolbox;
 use App\Http\Livewire\Components\Site\Sections\ContactForm;
 use App\Http\Livewire\Components\Site\Sections\CTA;
 use App\Http\Livewire\Components\Site\Sections\FeatureCenter2x2Grid;
@@ -9,6 +8,7 @@ use App\Http\Livewire\Components\Site\Sections\Features;
 use App\Http\Livewire\Components\Site\Sections\Heading;
 use App\Http\Livewire\Components\Site\Sections\Hero;
 use App\Http\Livewire\Components\Site\Sections\Posts;
+use App\Http\Livewire\Components\Site\Sections\Toolbox;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
@@ -35,7 +35,7 @@ test('home has CTA section', function () {
     $this->get(route('home'))->assertSeeLivewire(CTA::class);
 });
 
-// Solutions 
+// Solutions
 
 test('solutions has heading section', function () {
     $this->get(route('solutions'))->assertSeeLivewire(Heading::class);

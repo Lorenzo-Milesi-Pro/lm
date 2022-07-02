@@ -10,7 +10,7 @@ class Navigation extends Component
     public ?string $search = null;
 
     protected $queryString = [
-        'search' => [ 'except' => '']
+        'search' => ['except' => ''],
     ];
 
     public function render(): View
@@ -25,7 +25,7 @@ class Navigation extends Component
 
     public function go()
     {
-        if($this->search) {
+        if ($this->search) {
             $this->redirect(route('search', ['search' => $this->search]));
         }
     }

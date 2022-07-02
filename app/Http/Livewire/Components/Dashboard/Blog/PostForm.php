@@ -19,7 +19,6 @@ class PostForm extends Component
     public ?Post $post = null;
     public Collection $domains;
     public bool $write = true;
-
     public string $title = '';
     public $cover;
     public ?string $tempCover = null;

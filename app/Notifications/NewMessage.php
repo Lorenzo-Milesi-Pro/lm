@@ -4,7 +4,6 @@ namespace App\Notifications;
 
 use App\Models\Message;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\Telegram\TelegramMessage;
@@ -20,8 +19,7 @@ class NewMessage extends Notification
      */
     public function __construct(
         private Message $message
-    )
-    {
+    ) {
         //
     }
 

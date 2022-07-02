@@ -17,7 +17,7 @@ class DomainForm extends Component
     protected $listeners = ['open', 'close'];
 
     protected $rules = [
-        'name' => 'required|string|min:3|max:255|unique:blog_domains'
+        'name' => 'required|string|min:3|max:255|unique:blog_domains',
     ];
 
     public function render(): View
