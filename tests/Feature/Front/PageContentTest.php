@@ -4,6 +4,7 @@ use App\Http\Livewire\Components\Site\Sections\Blog;
 use App\Http\Livewire\Components\Site\Sections\ContactForm;
 use App\Http\Livewire\Components\Site\Sections\CTA;
 use App\Http\Livewire\Components\Site\Sections\FeatureCenter2x2Grid;
+use App\Http\Livewire\Components\Site\Sections\FeaturedPosts;
 use App\Http\Livewire\Components\Site\Sections\Features;
 use App\Http\Livewire\Components\Site\Sections\Heading;
 use App\Http\Livewire\Components\Site\Sections\Hero;
@@ -33,6 +34,10 @@ test('home has no posts section if unpublished  posts', function () {
 
 test('home has CTA section', function () {
     $this->get(route('home'))->assertSeeLivewire(CTA::class);
+});
+
+test('home has featured posts section', function () {
+    $this->get(route('home'))->assertSeeLivewire(FeaturedPosts::class);
 });
 
 // Solutions
