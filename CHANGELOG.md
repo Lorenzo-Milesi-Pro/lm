@@ -1,3 +1,14 @@
+## 0.6.0 (2022-07-03)
+
+### Feat
+
+- **front**: featured posts section
+- **home**: add featured posts section to home page
+
+### Refactor
+
+- **repositories**: removing useless methods
+
 ## 0.5.1 (2022-07-02)
 
 ### Fix
