@@ -81,7 +81,7 @@ it('gets domain published posts', function () {
 
     Post::factory(5)->create(['published_at' => now(), 'blog_domain_id' => $laravel->id]);
     Post::factory(3)->create(['published_at' => now(), 'blog_domain_id' => $community->id]);
-    
+
     $result = app(PostRepository::class)->getPosts($laravel->slug);
     $this->assertCount(5, $result->items());
 });
