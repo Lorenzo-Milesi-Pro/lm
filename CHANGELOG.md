@@ -1,3 +1,13 @@
+## 0.7.0 (2022-07-06)
+
+### Feat
+
+- **post**: add torchlight inside posts content
+
+## posts (2022-07-02)
+
+## featured-posts (2022-06-29)
+
 ## 0.6.0 (2022-07-03)
 
 ### Feat
