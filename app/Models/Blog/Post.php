@@ -42,6 +42,27 @@ class Post extends Model
         );
     }
 
+    protected function htmlContent(): Attribute
+    {
+        $blocks = explode('```', $this->content);
+
+        foreach($blocks as $k => $block) {
+            if($k % 2) {
+                $language = !empty(Str::before($block, PHP_EOL))
+                    ? Str::before($block, PHP_EOL)
+                    : 'bash';
+                $blocks[$k] = [
+                    'language' => $language,
+                    'content' => Str::after($block, PHP_EOL)
+                ];
+            }
+        }
+
+        return new Attribute(
+            get: fn () => $blocks
+        );
+    }
+
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()

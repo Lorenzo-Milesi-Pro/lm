@@ -16,7 +16,8 @@
         "livewire/livewire": "^2.5",
         "spatie/laravel-markdown": "^2.2",
         "spatie/laravel-sluggable": "^3.2",
-        "spatie/shiki-php": "^1.1"
+        "spatie/shiki-php": "^1.1",
+        "torchlight/torchlight-laravel": "^0.5.11"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
