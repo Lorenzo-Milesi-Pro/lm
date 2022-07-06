@@ -1486,6 +1486,12 @@ select {
 .max-w-sm {
   max-width: 24rem;
 }
+.max-w-screen-sm {
+  max-width: 640px;
+}
+.max-w-screen-md {
+  max-width: 768px;
+}
 .max-w-6xl {
   max-width: 72rem;
 }
@@ -2307,10 +2313,6 @@ select {
   --tw-text-opacity: 1;
   color: rgb(16 185 129 / var(--tw-text-opacity));
 }
-.text-blue-600 {
-  --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity));
-}
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -2408,6 +2410,68 @@ select {
 .ease-in {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
+img {
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  border-radius: 0.25rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(147 197 253 / var(--tw-bg-opacity));
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  --tw-text-opacity: 1 !important;
+  color: rgb(31 41 55 / var(--tw-text-opacity)) !important;
+}
+code::before, code::after {
+  display: none;
+}
+.prose a {
+  --tw-text-opacity: 1 !important;
+  color: rgb(59 130 246 / var(--tw-text-opacity)) !important;
+}
+/*
+ Margin and rounding are personal preferences,
+ overflow-x-auto is recommended.
+*/
+pre {
+    border-radius: 0.25rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+}
+/*
+ Add some vertical padding and expand the width
+ to fill its container. The horizontal padding
+ comes at the line level so that background
+ colors extend edge to edge.
+*/
+pre code.torchlight {
+    display: block;
+    min-width: -webkit-max-content;
+    min-width: -moz-max-content;
+    min-width: max-content;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+/*
+ Horizontal line padding to match the vertical
+ padding from the code block above.
+*/
+pre code.torchlight .line {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+/*
+ Push the code away from the line numbers and
+ summary caret indicators.
+*/
+pre code.torchlight .line-number,
+pre code.torchlight .summary-caret {
+    margin-right: 1rem;
+}
 .focus-within\:outline-none:focus-within {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -2504,14 +2568,6 @@ select {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
 }
-.hover\:text-sky-900:hover {
-  --tw-text-opacity: 1;
-  color: rgb(12 74 110 / var(--tw-text-opacity));
-}
-.hover\:text-white:hover {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
 .hover\:text-sky-500:hover {
   --tw-text-opacity: 1;
   color: rgb(14 165 233 / var(--tw-text-opacity));
@@ -2520,9 +2576,13 @@ select {
   --tw-text-opacity: 1;
   color: rgb(99 102 241 / var(--tw-text-opacity));
 }
-.hover\:text-blue-500:hover {
+.hover\:text-sky-900:hover {
   --tw-text-opacity: 1;
-  color: rgb(59 130 246 / var(--tw-text-opacity));
+  color: rgb(12 74 110 / var(--tw-text-opacity));
+}
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .hover\:underline:hover {
   -webkit-text-decoration-line: underline;
@@ -2872,6 +2932,10 @@ select {
     height: 66.666667%;
   }
 
+  .sm\:h-full {
+    height: 100%;
+  }
+
   .sm\:h-screen {
     height: 100vh;
   }
@@ -2882,10 +2946,6 @@ select {
 
   .sm\:h-16 {
     height: 4rem;
-  }
-
-  .sm\:h-full {
-    height: 100%;
   }
 
   .sm\:w-10 {
@@ -3468,4 +3528,6 @@ select {
     padding-bottom: 8rem;
   }
 }
+
+
 
