@@ -2,6 +2,8 @@
 
 use App\Models\Blog\Post;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,12 +26,22 @@ Route::get('/blog', fn () => view('site.blog'))->name('blog');
 
 Route::get('/toolbox', fn () => view('site.toolbox'))->name('toolbox');
 
-Route::get('/post/{post}', function (Post $post) {
+Route::get('/post/{post}', function (Request $request, Post $post) {
+
+
     if ($post->published_at) {
-        $post->views++;
-        $post->viewed_at = now();
-        $post->timestamps = false;
-        $post->save();
+
+        dispatch(function () use ($post, $request) {
+
+            Cache::remember("post_view:{$request->ip()}:$post->id", 86400, function () use ($post) {
+                $post->views++;
+                $post->viewed_at = now();
+                $post->timestamps = false;
+                $post->save();
+                return 1;
+            });
+
+        })->afterResponse();
 
         return view('site.blog.post', compact('post'));
     }
