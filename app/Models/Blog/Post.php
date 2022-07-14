@@ -64,6 +64,20 @@ class Post extends Model
         );
     }
 
+    protected function hasPrevious(): Attribute
+    {
+        return new Attribute(
+            get: fn () => $this->previous?->published_at
+        );
+    }
+
+    protected function hasNext(): Attribute
+    {
+        return new Attribute(
+            get: fn () => $this->next?->published_at
+        );
+    }
+
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()

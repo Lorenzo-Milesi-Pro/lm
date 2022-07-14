@@ -50,6 +50,38 @@
                     @endif
                 @endforeach
             </div>
+
+            @if($post->has_next || $post->has_previous)
+                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center">
+                        <h2 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
+                            Série
+                        </h2>
+                        <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+                            Cet article est un chapitre d'une série de plusieurs articles
+                        </p>
+                    </div>
+                    <div class="mt-12 max-w-screen-md mx-auto grid gap-8 lg:grid-cols-2">
+                        @if($post->has_previous)
+                            <div>
+                                <p class="text-xl tracking-tight font-extrabold text-gray-900 mb-4">Chapitre précédent</p>
+                                <x-models.post-card :post="$post->previous" />
+                            </div>
+                        @else
+                            <div class="w-4"></div>
+                        @endif
+
+                        @if($post->has_next)
+                            <div class="flex flex-col">
+                                <p class="text-xl tracking-tight font-extrabold text-gray-900 mb-4">Chapitre suivant</p>
+                                <x-models.post-card class="flex-1" :post="$post->next" />
+                            </div>
+                        @else
+                            <div class="w-4"></div>
+                        @endif
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
 </x-guest-layout>

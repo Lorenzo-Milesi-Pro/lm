@@ -1483,9 +1483,6 @@ select {
 .max-w-prose {
   max-width: 65ch;
 }
-.max-w-sm {
-  max-width: 24rem;
-}
 .max-w-screen-sm {
   max-width: 640px;
 }
@@ -1597,6 +1594,9 @@ select {
 .flex-wrap {
   flex-wrap: wrap;
 }
+.place-content-stretch {
+  place-content: stretch;
+}
 .items-start {
   align-items: flex-start;
 }
@@ -1605,6 +1605,9 @@ select {
 }
 .items-center {
   align-items: center;
+}
+.items-stretch {
+  align-items: stretch;
 }
 .justify-start {
   justify-content: flex-start;
