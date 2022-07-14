@@ -1,3 +1,15 @@
+## 0.10.0 (2022-07-15)
+
+### Feat
+
+- **post**: display next and previous published associated chapters
+- **post**: admin can add a new chapter on a post
+- **post**: show add chapter link for posts that do not have a following post
+
+### Refactor
+
+- **post**: change column meaning
+
 ## 0.9.1 (2022-07-14)
 
 ### Fix
