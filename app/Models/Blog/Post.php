@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Str;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -73,6 +74,16 @@ class Post extends Model
     public function blog_domain(): BelongsTo
     {
         return $this->belongsTo(Domain::class);
+    }
+
+    public function next(): HasOne
+    {
+        return $this->hasOne(Post::class, 'next_id');
+    }
+
+    public function previous(): BelongsTo
+    {
+        return $this->belongsTo(Post::class, 'next_id');
     }
 
     public function getRouteKeyName(): string
