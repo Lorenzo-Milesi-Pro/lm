@@ -114,9 +114,13 @@
                                         @if ($post->preview)
                                             <a class="text-sky-600 hover:text-sky-900" href="{{ route('preview', $post->preview) }}">
                                                 {{ __('Preview') }}
-                                            </a>
+                                        </a>
                                         @endif
                                         <span wire:click="edit({{ $post->id }})" class="cursor-pointer text-sky-600 hover:text-sky-900">{{  __('Edit')  }}</span>
+
+                                        @if(!$post->next)
+                                            <span wire:click="edit({{ $post->id }})" class="cursor-pointer text-sky-600 hover:text-sky-900">{{  __('Add Chapter')  }}</span>
+                                        @endif()
                                     </td>
                                 </tr>
                             @endforeach
