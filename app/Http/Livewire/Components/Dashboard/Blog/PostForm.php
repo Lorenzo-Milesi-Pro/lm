@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use JetBrains\PhpStorm\ArrayShape;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -16,6 +17,7 @@ class PostForm extends Component
 {
     use WithFileUploads, WithModalBehaviour;
 
+    public ?Post $previous = null;
     public ?Post $post = null;
     public Collection $domains;
     public bool $write = true;
@@ -28,7 +30,20 @@ class PostForm extends Component
     public bool $publish = false;
     public bool $hasPreview = false;
 
-    protected $listeners = ['open', 'close', 'domainStoreEvent'];
+    protected $listeners = ['open', 'close', 'domainStoreEvent', 'newChapter'];
+
+    public function getCardTitleProperty(): string
+    {
+        if($this->post->title) {
+            return __('Update post : ') . $this->post->title;
+        }
+
+        if($this->previous) {
+            return __('New chapter after : ') . $this->previous->title;
+        }
+
+        return __('Create a new Post');
+    }
 
     public function render(): View
     {
@@ -60,6 +75,9 @@ class PostForm extends Component
             $this->post->preview = null;
         }
         $this->post->save();
+        $this->post->refresh();
+
+        $this->previous?->next()->save($this->post);
 
         $this->emit('postStored');
     }
@@ -84,6 +102,19 @@ class PostForm extends Component
         }
     }
 
+    protected function initialize(): void
+    {
+        $this->title = $this->post->title ?? '';
+        $this->cover = $this->post->cover;
+        $this->tempCover = $this->cover;
+        $this->excerpt = $this->post->excerpt;
+        $this->content = $this->post->content;
+        $this->domain = $this->post->blog_domain_id;
+        $this->publish = !is_null($this->post->published_at);
+        $this->hasPreview = !is_null($this->post->preview);
+        $this->show = true;
+    }
+
     private function storeCoverAndGetPath(): string|null
     {
         if (is_string($this->cover)) {
@@ -98,18 +129,20 @@ class PostForm extends Component
     public function open(?int $post = null)
     {
         $this->post = $post ? Post::find($post) : new Post();
-        $this->title = $this->post->title ?? '';
-        $this->cover = $this->post->cover;
-        $this->tempCover = $this->cover;
-        $this->excerpt = $this->post->excerpt;
-        $this->content = $this->post->content;
-        $this->domain = $this->post->blog_domain_id;
-        $this->publish = !is_null($this->post->published_at);
-        $this->hasPreview = !is_null($this->post->preview);
-        $this->show = true;
+        $this->initialize();
     }
 
-    private function validationRules(): array
+    public function newChapter(?int $post = null)
+    {
+        $this->previous = $post ? Post::find($post) : new Post();
+        $this->post = new Post();
+        $this->initialize();
+    }
+
+    #[ArrayShape([
+        'title' => "string", 'cover' => "string", 'excerpt' => "string", 'content' => "string", 'domain' => "string",
+        'publish' => "string",
+    ])] private function validationRules(): array
     {
         $uniqueRule = $this->post->id ? 'unique:blog_posts,title,'.$this->post->id : 'unique:blog_posts,title';
 

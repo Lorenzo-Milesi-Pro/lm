@@ -119,7 +119,7 @@
                                         <span wire:click="edit({{ $post->id }})" class="cursor-pointer text-sky-600 hover:text-sky-900">{{  __('Edit')  }}</span>
 
                                         @if(!$post->next)
-                                            <span wire:click="edit({{ $post->id }})" class="cursor-pointer text-sky-600 hover:text-sky-900">{{  __('Add Chapter')  }}</span>
+                                            <span wire:click="addChapter({{ $post->id }})" class="cursor-pointer text-sky-600 hover:text-sky-900">{{  __('Add Chapter')  }}</span>
                                         @endif()
                                     </td>
                                 </tr>

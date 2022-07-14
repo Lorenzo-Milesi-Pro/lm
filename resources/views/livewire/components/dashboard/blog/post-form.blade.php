@@ -6,11 +6,7 @@
                     <div>
                         <div class="flex justify-between">
                             <h3 class="text-lg leading-6 font-medium text-gray-900">
-                                @if($post->title)
-                                    {{ __('Update post : ') . $post->title }}
-                                @else
-                                    {{ __('Create a new Post') }}
-                                @endif
+                                {{ $this->cardTitle }}
                             </h3>
                             <span wire:click.prevent="close">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 hover:text-red-500 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
