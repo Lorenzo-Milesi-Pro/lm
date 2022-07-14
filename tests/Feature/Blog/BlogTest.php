@@ -42,18 +42,11 @@ it('increases post views count everytime someone opens post link', function () {
 });
 
 it('updates post viewed_at everytime someone opens post link', function () {
-    $post = Post::factory()->create(['published_at' => now()]);
+    $post = Post::factory()->create(['slug' => 'one', 'published_at' => now()]);
     $this->assertEquals(null, $post->viewed_at);
     $this->get(route('post', $post));
     $post->refresh();
     $this->assertEquals(now(), $post->viewed_at);
-    $oldViewedAt = $post->viewed_at;
-    $theDayAfter = Carbon::now()->addDay(1);
-    Carbon::setTestNow($theDayAfter);
-    $this->get(route('post', $post));
-    $post->refresh();
-    $this->assertEquals(now(), $post->viewed_at);
-    Carbon::setTestNow();
 });
 
 it('does not change updated at everytime someone opens post link', function () {
