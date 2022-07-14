@@ -78,12 +78,12 @@ class Post extends Model
 
     public function next(): HasOne
     {
-        return $this->hasOne(Post::class, 'next_id');
+        return $this->hasOne(Post::class, 'parent_id');
     }
 
     public function previous(): BelongsTo
     {
-        return $this->belongsTo(Post::class, 'next_id');
+        return $this->belongsTo(Post::class, 'parent_id');
     }
 
     public function getRouteKeyName(): string
