@@ -1,3 +1,9 @@
+## 0.9.0 (2022-07-14)
+
+### Feat
+
+- **post**: a post can have a previous and a following post
+
 ## 0.8.0 (2022-07-14)
 
 ### Feat
