@@ -67,9 +67,6 @@
                                     Title
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Excerpt
-                                </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Status
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -84,7 +81,7 @@
                             @foreach($posts as $post)
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
+                                        <div class="flex items-center" title="{{ $post->excerpt }}">
                                             <div class="flex-shrink-0 h-16 w-16">
                                                 <img class="h-16 w-16 rounded-full" src="{{ $post->cover }}" alt="">
                                             </div>
@@ -95,18 +92,15 @@
                                                 <div class="text-sm text-gray-500">
                                                     {{ $post->slug }}
                                                 </div>
+                                                <div class="text-sm text-gray-500">
+                                                    {{ $post->updated_at->format('d M Y') }}
+                                                    &bullet;
+                                                    {{ $post->reading_time }}
+                                                </div>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 max-w-sm">
-                                        <div class="text-sm text-gray-900">
-                                            {{ $post->excerpt }}
-                                        </div>
-                                        <div class="text-sm text-gray-500">
-                                            {{ $post->updated_at->format('d M Y') }}
-                                            &bullet;
-                                            {{ $post->reading_time }}
-                                        </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         @if($post->published_at)
