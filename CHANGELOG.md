@@ -1,3 +1,10 @@
+## 0.9.1 (2022-07-14)
+
+### Fix
+
+- **post**: translate post index terms to french language
+- **post**: remove exerpt in dashboard post index
+
 ## 0.9.0 (2022-07-14)
 
 ### Feat
