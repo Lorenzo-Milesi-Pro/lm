@@ -1,3 +1,9 @@
+## 0.8.0 (2022-07-14)
+
+### Feat
+
+- **post**: do not increase number of views on same IP address twice the same day
+
 ## 0.7.0 (2022-07-06)
 
 ### Feat
