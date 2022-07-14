@@ -1,4 +1,15 @@
 {
     "Featured posts": "Top articles",
-    "Want more?": "T'en veux plus ?"
+    "Want more?": "T'en veux plus ?",
+    "Title": "Titre",
+    "Status": "État",
+    "Domain": "Domaine",
+    "Domains": "Domaines",
+    "Actions": "Actions",
+    "Active": "Public",
+    "Hidden": "Privé",
+    "Preview": "Aperçu",
+    "Edit": "Modifier",
+    "Search": "Rechercher",
+    "All": "Toustes"
 }

@@ -64,16 +64,16 @@
                             <thead class="bg-gray-50">
                             <tr>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Title
+                                    {{ __('Title') }}
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Status
+                                    {{ __('Status') }}
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Domain
+                                    {{ __('Domain') }}
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Actions
+                                    {{ __('Actions') }}
                                 </th>
                             </tr>
                             </thead>
@@ -100,13 +100,11 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="px-6 py-4 max-w-sm">
-                                    </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         @if($post->published_at)
-                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-emerald-100 text-emerald-800">Active</span>
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-emerald-100 text-emerald-800">{{ __('Active') }}</span>
                                         @else
-                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-orange-100 text-orange-800">Hidden</span>
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-orange-100 text-orange-800">{{ __('Hidden') }}</span>
                                         @endif
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -114,9 +112,11 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-8">
                                         @if ($post->preview)
-                                            <a class="text-sky-600 hover:text-sky-900" href="{{ route('preview', $post->preview) }}">Preview</a>
+                                            <a class="text-sky-600 hover:text-sky-900" href="{{ route('preview', $post->preview) }}">
+                                                {{ __('Preview') }}
+                                            </a>
                                         @endif
-                                        <span wire:click="edit({{ $post->id }})" class="cursor-pointer text-sky-600 hover:text-sky-900">Edit</span>
+                                        <span wire:click="edit({{ $post->id }})" class="cursor-pointer text-sky-600 hover:text-sky-900">{{  __('Edit')  }}</span>
                                     </td>
                                 </tr>
                             @endforeach
