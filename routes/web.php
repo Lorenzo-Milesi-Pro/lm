@@ -28,6 +28,8 @@ Route::get('/blog', fn () => view('site.blog'))->name('blog');
 
 Route::get('/toolbox', fn () => view('site.toolbox'))->name('toolbox');
 
+Route::get('/story', fn () => view('site.story'))->name('story');
+
 Route::get('/post/{post}', function (Request $request, Post $post) {
 
 

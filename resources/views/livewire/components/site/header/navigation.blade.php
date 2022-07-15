@@ -28,6 +28,9 @@
                 <a href="{{ route('toolbox') }}" class="text-base font-medium text-gray-500 hover:text-gray-900">
                     {{ __('Toolbox') }}
                 </a>
+                <a href="{{ route('story') }}" class="text-base font-medium text-gray-500 hover:text-gray-900">
+                    {{ __('Story') }}
+                </a>
                 <a href="{{ route('contact') }}" class="text-base font-medium text-gray-500 hover:text-gray-900">
                     {{ __('Contact') }}
                 </a>

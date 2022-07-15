@@ -40,6 +40,13 @@
                         </span>
                     </a>
 
+                    <a href="{{ route('story') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                        <x-icons.archive class="flex-shrink-0 h-6 w-6 text-sky-600" />
+                        <span class="ml-3 text-base font-medium text-gray-900">
+                            {{ __('Story') }}
+                        </span>
+                    </a>
+
                     <a href="{{ route('contact') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
                         <x-icons.phone class="flex-shrink-0 h-6 w-6 text-sky-600" />
                         <span class="ml-3 text-base font-medium text-gray-900">

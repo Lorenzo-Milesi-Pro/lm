@@ -29,6 +29,10 @@ it('has toolbox page', function () {
     $this->get(route('toolbox'))->assertOk();
 });
 
+it('has story page', function () {
+    $this->get(route('story'))->assertOk();
+});
+
 // Navigation
 
 it('has solutions navigation', function () {
@@ -49,4 +53,9 @@ it('has contact navigation', function () {
 it('has toolbox navigation', function () {
     Livewire::test(Navigation::class)->assertSee(route('toolbox'));
     Livewire::test(NavigationMobile::class)->assertSee(route('toolbox'));
+});
+
+it('has story navigation', function () {
+    Livewire::test(Navigation::class)->assertSee(route('story'));
+    Livewire::test(NavigationMobile::class)->assertSee(route('story'));
 });
