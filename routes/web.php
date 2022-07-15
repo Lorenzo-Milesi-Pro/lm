@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Cache;
 |
 */
 
+Route::feeds();
+
 Route::get('/', fn () => view('welcome'))->name('home');
 
 Route::get('/solutions', fn () => view('site.solutions'))->name('solutions');

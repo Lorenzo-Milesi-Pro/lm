@@ -3,16 +3,22 @@
 namespace App\Models\Blog;
 
 use App\Helpers\Blogging;
+use App\Pipes\Post\Active;
+use App\Pipes\Post\ExceptToolbox;
+use App\Pipes\Post\MostRecent;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Pipeline\Pipeline;
 use Illuminate\Support\Str;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Post extends Model
+class Post extends Model implements Feedable
 {
     use HasFactory, HasSlug;
 
@@ -103,5 +109,25 @@ class Post extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    public function toFeedItem(): FeedItem
+    {
+        return FeedItem::create()
+            ->id($this->id)
+            ->title($this->title)
+            ->summary($this->excerpt)
+            ->link(route('post', $this))
+            ->authorName('Lorenzo Milesi')
+            ->updated($this->updated_at);
+    }
+
+    public static function getFeedItems()
+    {
+        return app(Pipeline::class)
+            ->send(Post::query())
+            ->through([Active::class, MostRecent::class])
+            ->thenReturn()
+            ->get();
     }
 }
