@@ -3286,6 +3286,10 @@ pre code.torchlight .summary-caret {
     margin-top: 1.25rem;
   }
 
+  .md\:block {
+    display: block;
+  }
+
   .md\:inline-block {
     display: inline-block;
   }

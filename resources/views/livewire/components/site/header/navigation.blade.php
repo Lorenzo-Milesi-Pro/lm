@@ -36,7 +36,7 @@
                 </a>
             </nav>
 
-            <div>
+            <div class="hidden lg:block">
                 <label for="search" class="block text-sm font-medium text-gray-700 sr-only">
                     {{ __('Quick Search') }}
                 </label>
