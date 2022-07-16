@@ -27,21 +27,21 @@
                     </a>
 
                     <a href="{{ route('blog') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                        <x-icons.beaker class="flex-shrink-0 h-6 w-6 text-sky-600" />
+                        <x-icons.newspaper class="flex-shrink-0 h-6 w-6 text-sky-600" />
                         <span class="ml-3 text-base font-medium text-gray-900">
                             {{ __('Blog') }}
                         </span>
                     </a>
 
                     <a href="{{ route('toolbox') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                        <x-icons.archive class="flex-shrink-0 h-6 w-6 text-sky-600" />
+                        <x-icons.calculator class="flex-shrink-0 h-6 w-6 text-sky-600" />
                         <span class="ml-3 text-base font-medium text-gray-900">
                             {{ __('Toolbox') }}
                         </span>
                     </a>
 
                     <a href="{{ route('story') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                        <x-icons.archive class="flex-shrink-0 h-6 w-6 text-sky-600" />
+                        <x-icons.collection class="flex-shrink-0 h-6 w-6 text-sky-600" />
                         <span class="ml-3 text-base font-medium text-gray-900">
                             {{ __('Story') }}
                         </span>
