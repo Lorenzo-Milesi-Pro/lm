@@ -1,3 +1,9 @@
+## 0.14.0 (2022-07-16)
+
+### Feat
+
+- **changelog**: add new changelog page
+
 ## 0.13.1 (2022-07-16)
 
 ### Fix
