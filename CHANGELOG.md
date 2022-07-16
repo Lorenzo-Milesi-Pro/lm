@@ -1,3 +1,10 @@
+## 0.13.1 (2022-07-16)
+
+### Fix
+
+- change icons site-wide
+- **navigation**: hide search bar on mibile
+
 ## 0.13.0 (2022-07-16)
 
 ### Feat
