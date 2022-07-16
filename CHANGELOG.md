@@ -1,3 +1,9 @@
+## 0.13.0 (2022-07-16)
+
+### Feat
+
+- **story**: add resume download button
+
 ## 0.12.0 (2022-07-15)
 
 ### Feat
