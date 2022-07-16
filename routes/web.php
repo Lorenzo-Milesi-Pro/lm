@@ -18,33 +18,38 @@ use Illuminate\Support\Facades\Cache;
 
 Route::feeds();
 
-Route::get('/', fn () => view('welcome'))->name('home');
+Route::get('/', fn() => view('welcome'))->name('home');
 
-Route::get('/solutions', fn () => view('site.solutions'))->name('solutions');
+Route::get('/solutions', fn() => view('site.solutions'))->name('solutions');
 
-Route::get('/contact', fn () => view('site.contact'))->name('contact');
+Route::get('/contact', fn() => view('site.contact'))->name('contact');
 
-Route::get('/blog', fn () => view('site.blog'))->name('blog');
+Route::get('/blog', fn() => view('site.blog'))->name('blog');
 
-Route::get('/toolbox', fn () => view('site.toolbox'))->name('toolbox');
+Route::get('/toolbox', fn() => view('site.toolbox'))->name('toolbox');
 
-Route::get('/story', fn () => view('site.story'))->name('story');
+Route::get('/story', fn() => view('site.story'))->name('story');
+
+Route::get('/changelog', function () {
+    try {
+        $content = file_get_contents('https://raw.githubusercontent.com/Lorenzo-Milesi-Pro/lm/main/CHANGELOG.md');
+    } catch (ErrorException $e) {
+        $content = '';
+    }
+    return view('site.changelog', compact('content'));
+})->name('changelog');
 
 Route::get('/post/{post}', function (Request $request, Post $post) {
-
-
     if ($post->published_at) {
-
         dispatch(function () use ($post, $request) {
-
             Cache::remember("post_view:{$request->ip()}:$post->id", 86400, function () use ($post) {
                 $post->views++;
                 $post->viewed_at = now();
                 $post->timestamps = false;
                 $post->save();
+
                 return 1;
             });
-
         })->afterResponse();
 
         return view('site.blog.post', compact('post'));
@@ -63,10 +68,10 @@ Route::get('/post/preview/{uuid}', function (string $uuid) {
     return view('site.blog.post', compact('post'));
 })->name('preview');
 
-Route::get('/search', fn () => view('site.search'))->name('search');
+Route::get('/search', fn() => view('site.search'))->name('search');
 
 Route::middleware(['auth:sanctum', 'verified'])->prefix('dashboard')->group(function () {
-    Route::get('/', fn () => view('dashboard'))->name('dashboard');
-    Route::get('/blog', fn () => view('dashboard.blog'))->name('dashboard.blog');
-    Route::get('/domains', fn () => view('dashboard.domains'))->name('dashboard.domains');
+    Route::get('/', fn() => view('dashboard'))->name('dashboard');
+    Route::get('/blog', fn() => view('dashboard.blog'))->name('dashboard.blog');
+    Route::get('/domains', fn() => view('dashboard.domains'))->name('dashboard.domains');
 });

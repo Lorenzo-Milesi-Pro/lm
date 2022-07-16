@@ -14,8 +14,8 @@
             </div>
 
             <div class="px-5 py-2">
-                <a href="{{ route('contact') }}" class="text-base text-gray-500 hover:text-gray-900">
-                    {{ __('Contact') }}
+                <a href="{{ route('changelog') }}" class="text-base text-gray-500 hover:text-gray-900">
+                    {{ __('Changelog') }}
                 </a>
             </div>
 
