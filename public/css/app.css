@@ -1307,11 +1307,8 @@ select {
 .-mt-6 {
   margin-top: -1.5rem;
 }
-.-ml-0\.5 {
-  margin-left: -0.125rem;
-}
-.-ml-0 {
-  margin-left: -0px;
+.-ml-1 {
+  margin-left: -0.25rem;
 }
 .ml-8 {
   margin-left: 2rem;
@@ -1327,9 +1324,6 @@ select {
 }
 .-mt-px {
   margin-top: -1px;
-}
-.-ml-1 {
-  margin-left: -0.25rem;
 }
 .block {
   display: block;
@@ -2327,10 +2321,6 @@ select {
   --tw-text-opacity: 1;
   color: rgb(16 185 129 / var(--tw-text-opacity));
 }
-.\!text-white {
-  --tw-text-opacity: 1 !important;
-  color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
-}
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -2448,6 +2438,9 @@ code {
   color: rgb(31 41 55 / var(--tw-text-opacity)) !important;
 }
 code::before, code::after {
+  display: none;
+}
+blockquote p::before, blockquote p::after {
   display: none;
 }
 .prose a {
@@ -3284,10 +3277,6 @@ pre code.torchlight .summary-caret {
 
   .md\:mt-5 {
     margin-top: 1.25rem;
-  }
-
-  .md\:block {
-    display: block;
   }
 
   .md\:inline-block {

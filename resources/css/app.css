@@ -59,6 +59,10 @@ pre code.torchlight .summary-caret {
         @apply hidden;
     }
 
+    blockquote p::before, blockquote p::after {
+        @apply hidden;
+    }
+
     .prose a {
         @apply !text-blue-500;
     }
