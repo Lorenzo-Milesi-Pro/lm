@@ -1,3 +1,9 @@
+## 0.15.0 (2022-07-21)
+
+### Feat
+
+- **front**: add dark theme support
+
 ## 0.14.1 (2022-07-20)
 
 ### Fix
