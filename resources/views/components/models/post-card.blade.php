@@ -1,5 +1,5 @@
 <div {{ $attributes->merge(['class' => 'flex flex-col rounded-lg shadow-lg overflow-hidden' ]) }}>
-    <a href="{{ route('post', $post) }}" class="flex-shrink-0">
+    <a href="{{ route('post', $post) }}" class="flex-shrink-0 bg-slate-700">
         <img class="h-48 w-full object-cover" src="{{ $post->cover }}" alt="">
     </a>
     <div class="flex-1 bg-white p-6 flex flex-col justify-between">

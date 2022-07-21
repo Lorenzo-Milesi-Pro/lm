@@ -20,6 +20,12 @@ Route::feeds();
 
 Route::get('/', fn() => view('welcome'))->name('home');
 
+Route::get('/theme', function (Request $request) {
+    $theme = Cache::get("theme:{$request->ip()}") ?? 'light';
+    Cache::put("theme:{$request->ip()}", 'dark' === $theme ? 'light' : 'dark');
+    return back();
+})->name('theme');
+
 Route::get('/solutions', fn() => view('site.solutions'))->name('solutions');
 
 Route::get('/contact', fn() => view('site.contact'))->name('contact');

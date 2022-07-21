@@ -64,7 +64,19 @@ pre code.torchlight .summary-caret {
     }
 
     .prose a {
-        @apply !text-blue-500;
+        @apply !text-blue-500 dark:!text-sky-400;
+    }
+
+    .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+        @apply dark:text-slate-100;
+    }
+
+    .prose p {
+        @apply dark:text-slate-400;
+    }
+
+    .prose strong {
+        @apply dark:!text-slate-400;
     }
 }
 

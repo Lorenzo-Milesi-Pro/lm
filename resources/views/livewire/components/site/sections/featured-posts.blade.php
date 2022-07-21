@@ -1,12 +1,12 @@
 <div>
     @if($show)
-        <div class="bg-gray-50">
+        <div class="bg-gray-50 dark:bg-slate-900">
             <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
                 <div class="sm:flex sm:items-baseline sm:justify-between">
-                    <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">
+                    <h2 class="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-slate-100">
                         {{ __('Featured posts') }}
                     </h2>
-                    <a href="{{ route('blog') }}" class="hidden text-sm font-semibold text-sky-600 hover:text-sky-500 sm:block">
+                    <a href="{{ route('blog') }}" class="hidden text-sm font-semibold text-sky-600 dark:text-sky-400 hover:text-sky-500 sm:block">
                         {{ __('Want more?') }}<span aria-hidden="true"> &rarr;</span></a>
                 </div>
 
@@ -104,8 +104,8 @@
                     </div>
                 </div>
 
-                <div class="mt-6 sm:hidden">
-                    <a href="#" class="block text-sm font-semibold text-indigo-600 hover:text-indigo-500">Browse all categories<span aria-hidden="true"> &rarr;</span></a>
+                <div class="mt-12 sm:hidden text-center">
+                    <a href="{{ route('blog') }}" class="text-sm font-semibold text-sky-600 dark:text-sky-400 hover:text-sky-500">{{ __('Want more?') }}</a>
                 </div>
             </div>
         </div>
