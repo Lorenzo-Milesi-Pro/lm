@@ -119,7 +119,12 @@
                                         <span wire:click="edit({{ $post->id }})" class="cursor-pointer text-sky-600 hover:text-sky-900">{{  __('Edit')  }}</span>
 
                                         @if(!$post->next)
-                                            <span wire:click="addChapter({{ $post->id }})" class="cursor-pointer text-sky-600 hover:text-sky-900">{{  __('Add Chapter')  }}</span>
+                                            <span wire:click="addChapter({{ $post->id }})" class="cursor-pointer text-sky-600 hover:text-sky-900">{{  __('+ Chapter')  }}</span>
+                                        @endif()
+                                        @if(!$post->classic)
+                                            <span wire:click="content({{ $post->id }})" class="cursor-pointer text-sky-600 hover:text-sky-900">{{  __('+ Classic')  }}</span>
+                                        @else
+                                            <span wire:click="content({{ $post->id }}, {{ $post->classic?->id }})" class="cursor-pointer text-sky-600 hover:text-sky-900">{{  __('~ Classic')  }}</span>
                                         @endif()
                                     </td>
                                 </tr>

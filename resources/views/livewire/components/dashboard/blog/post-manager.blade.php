@@ -6,3 +6,4 @@
 <livewire:components.dashboard.blog.post-index />
 <div class="h-8"></div>
 <livewire:components.dashboard.blog.post-form />
+<livewire:components.dashboard.blog.content-form />

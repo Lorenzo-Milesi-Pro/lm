@@ -29,25 +29,23 @@
             </div>
         </div>
 
-@if($post->hasClassic)
 <div class="relative bg-indigo-600 dark:bg-sky-500 max-w-screen-md mx-auto z-30 mb-12">
   <div class="py-3 px-3">
     <div class="flex flex-wrap items-center justify-between">
       <div class="flex flex-1 items-center">
         <p class="ml-3 font-medium text-white dark:text-slate-900 flex flex-col">
-          <span>Version épicène (avec les "iel" et autres)</span>
-          <span>Si tu veux, cet article est aussi dispo en écriture classique</span>
+          <span>Écriture classique (sans les "iel" et autres)</span>
+          <span>Si tu veux, cet article est aussi dispo en écriture inclusive</span>
         </p>
       </div>
       <div class="order-3 mt-2 w-full flex-shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
-        <a href="{{ route('post.classic', $post) }}" class="flex items-center justify-center rounded border border-transparent bg-white px-4 pr-6 py-2 text-sm font-medium text-indigo-600 dark:text-slate-900 shadow-sm hover:bg-indigo-50">
-            <x-icons.lightning-bolt class="h-5 w-5 mr-3" /> Aller
+        <a href="{{ route('post', $post) }}" class="flex items-center justify-center rounded border border-transparent bg-white px-4 pr-6 py-2 text-sm font-medium text-indigo-600 dark:text-slate-900 shadow-sm hover:bg-indigo-50">
+            <x-icons.lightning-bolt class="h-5 w-5 mr-3" /> Zébardi
         </a>
       </div>
     </div>
   </div>
 </div>
-@endif
 
         <div class="relative px-4 sm:px-6 lg:px-8">
             <div class="text-lg max-w-screen-sm mx-auto">
@@ -61,7 +59,7 @@
             </div>
             <div class="mt-6 max-w-screen-md prose prose-indigo prose-lg text-gray-500 dark:text-slate-300 mx-auto">
                 <img class="w-full rounded-lg" src="{{ $post->cover }}" alt="" width="1310" height="873">
-                @foreach($post->html_content as $k => $block)
+                @foreach($post->classic->html_content as $k => $block)
                     @if($k % 2)
                     <pre><x-torchlight-code class="text-sm" language="{{ $block['language']}}">{!! $block['content'] !!}</x-torchlight-code></pre>
                     @else

@@ -64,6 +64,17 @@ Route::get('/post/{post}', function (Request $request, Post $post) {
     abort('404');
 })->name('post');
 
+Route::get('/post/{post}/classic', function (Request $request, Post $post) {
+    if ($post->published_at) {
+        if($post->classic?->published_at) {
+            return view('site.blog.classic', compact('post'));
+        }
+        return view('site.blog.post', compact('post'));
+    }
+
+    abort('404');
+})->name('post.classic');
+
 Route::get('/post/preview/{uuid}', function (string $uuid) {
     $post = Post::where('preview', '=', $uuid)->firstOrFail();
 

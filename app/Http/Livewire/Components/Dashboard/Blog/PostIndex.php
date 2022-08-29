@@ -69,4 +69,9 @@ class PostIndex extends Component
     {
         $this->emitTo(PostForm::class, 'newChapter', $post);
     }
+
+    public function content(int $post, ?int $content = null)
+    {
+        $this->emitTo(ContentForm::class, 'open', $post, $content);
+    }
 }

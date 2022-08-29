@@ -4,12 +4,13 @@ namespace App\Models\Blog;
 
 use App\Helpers\Blogging;
 use App\Pipes\Post\Active;
-use App\Pipes\Post\ExceptToolbox;
+use App\Models\Content;
 use App\Pipes\Post\MostRecent;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Pipeline\Pipeline;
 use Illuminate\Support\Str;
@@ -84,6 +85,20 @@ class Post extends Model implements Feedable
         );
     }
 
+    public function hasClassic(): Attribute
+    {
+        return new Attribute(
+            get: fn () => $this->contents()->where('type', '=', 'classic')?->first()?->published_at
+        );
+    }
+
+    public function classic(): Attribute
+    {
+        return new Attribute(
+            get: fn () => $this->contents()->where('type', '=', 'classic')?->first()
+        );
+    }
+
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
@@ -106,10 +121,17 @@ class Post extends Model implements Feedable
         return $this->belongsTo(Post::class, 'parent_id');
     }
 
+    public function contents(): HasMany
+    {
+        return $this->hasMany(Content::class, 'blog_post_id');
+    }
+
     public function getRouteKeyName(): string
     {
         return 'slug';
     }
+
+
 
     public function toFeedItem(): FeedItem
     {
