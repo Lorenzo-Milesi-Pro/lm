@@ -1,7 +1,14 @@
+## Unreleased
+
+### Fix
+
+- **hero**: improve display
+
 ## 1.0.0 (2022-10-18)
 
 ### Feat
 
+- **products**: change communication and identity
 - **products**: change communication and identity
 - **post**: add classic content style
 
