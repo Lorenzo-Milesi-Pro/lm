@@ -1,3 +1,10 @@
+## 1.0.0 (2022-10-18)
+
+### Feat
+
+- **products**: change communication and identity
+- **post**: add classic content style
+
 ## 0.15.1 (2022-07-21)
 
 ### Fix
@@ -84,10 +91,6 @@
 
 - **post**: add torchlight inside posts content
 
-## posts (2022-07-02)
-
-## featured-posts (2022-06-29)
-
 ## 0.6.0 (2022-07-03)
 
 ### Feat
@@ -101,9 +104,13 @@
 
 ## 0.5.1 (2022-07-02)
 
+## posts (2022-07-02)
+
 ### Fix
 
 - **hero**: add better image
+
+## featured-posts (2022-06-29)
 
 ## 0.5.0 (2022-06-29)
 
@@ -140,13 +147,6 @@
 
 ## 0.1.0 (2022-06-27)
 
-### Fix
-
-- **posts**: get only published posts for guests
-- **post**: preview posts redirect to 404
-- **domain**: ability to create a new domain
-- **links**: enable cta links
-
 ### Feat
 
 - **blog**: save button on top
@@ -161,3 +161,10 @@
 - **messages**: ContactForm sent confirmation message
 - **messages**: ContactForm Validation and Save
 - **messages**: add Message table and model
+
+### Fix
+
+- **posts**: get only published posts for guests
+- **post**: preview posts redirect to 404
+- **domain**: ability to create a new domain
+- **links**: enable cta links
