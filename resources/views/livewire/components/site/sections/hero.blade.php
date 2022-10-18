@@ -1,4 +1,4 @@
-<div class="bg-white dark:bg-slate-800">
+<div class="bg-white dark:bg-slate-800 pb-4">
     <main class="px-4 sm:px-6 lg:px-8 pt-16">
         <div class="text-center flex flex-col justify-center items-center">
             <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-slate-100 sm:text-5xl md:text-6xl">
