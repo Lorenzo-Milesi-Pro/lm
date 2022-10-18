@@ -1,4 +1,10 @@
-## Unreleased
+## 1.0.2 (2022-10-18)
+
+### Fix
+
+- **wording**: correct gender in story page
+
+## 1.0.1 (2022-10-18)
 
 ### Fix
 
