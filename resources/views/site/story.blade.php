@@ -36,41 +36,46 @@
                     </span>
                 </h1>
                 <p class="mt-8 text-xl text-gray-500 dark:text-slate-300 leading-8">
-                    Salut, je suis Lorenzo Milesi, lead developer optimiste. J'essaie d'aider et soutenir les équipes
+                    Salut, je suis Thea, lead et tech advisor optimiste. J'essaie d'aider et soutenir les équipes
                     autant que faire se peut. (Et tout comme <a class="text-blue-500" href="https://twitter.com/chrispeedster?s=21&t=ow3LX_WPABo_lPPM8fslOw">@chrispeedster</a>, ma mascotte c'est pikachu ⚡️.
                 </p>
             </div>
             <div class="mt-6 max-w-screen-md prose prose-indigo prose-lg text-gray-500 dark:text-slate-300 mx-auto">
 
-                <div class="w-full flex justify-center">
-                    <a href="{{ asset('docs/resume.pdf') }}" class="no-underline">
-                        <button type="button" class="no-underline inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            <x-icons.collection class="-ml-1 mr-2 h-5 w-5" />
-                            Voir mon CV
-                        </button>
+                <div class="w-full flex flex-col items-center justify-center">
+                    <a href="https://github.com/cup-of-thea/cup-of-thea" target="_blank" class="flex items-center">
+                            Github cup-of-thea
+                    </a>
+                    <a href="https://twitter.com/ligh_thea" target="_blank" class="flex items-center">
+                            Twitter @ligh_thea
                     </a>
                 </div>
 
                 <x-markdown>
-## 1. Comment je suis devenu lead
+## 1. Pourquoi ce site
 
-J'en sais rien 🤷🏽.
+### La partie freelance
 
-En fait si 🤭, c'est grâce aux personnes qui m'entourent, cela demande beaucoup d'écoute et de remises
-en question. Je me plante souvent, et c'est précisément ce qui est constructif.
+La première impulsion de ce site était de présenter mon travail de freelance, d'abord en tant que développeuse, activité
+que je continue d'ailleurs d'exercer, mais de plus en plus en tant que tech advisor (et oui ça s'abrège en T.A.,
+prononcé comme... bah comme mon prénom 🤣).
 
-Et avec le temps, je pense que c'est la somme de mes erreurs m'a permis de devenir qui je suis.
-
-## 2. Pourquoi ce site
+### La partie contenus
 
 Au début, l'objectif était de faire connaître mon travail freelance (la fame pour la moula, tmtc), mais au fil du temps
 et des rencontres, j'ai commencé à écrire des articles qui me parlent, des articles qui me ressemblent (même si mon
 avis évolue sans cesse).
 
-Désormais, même si je veux toujours faire connaître mon travail, mes objectifs sont de partager mes points de vue et mes
-points d'ouïe, mes retours d'expérience sur le développement. Si cela apporte quelque chose, c'est idéal 🚀.
+Désormais, même si je veux toujours faire connaître mon travail, mes objectifs sont aussi de partager mes points de vue
+et mes points d'ouïe, mes retours d'expérience sur le développement. Si cela apporte quelque chose, c'est idéal 🚀.
 
-## 3. Le métier de lead
+## 2. Comment je suis devenu lead et tech advisor
+
+J'en sais rien 🤷🏻‍♀️.
+
+En fait si 🤭, c'est grâce aux personnes qui m'entourent, cela demande beaucoup d'écoute et de remises
+en question. J'avance, j'apprends tous les jours et apparemment avec le temps je commence à ne pas dire trop de
+conneries.
 
 Progressivement, je suis passé de junior à mid, puis de mid à lead. Et jusqu'ici j'ai surtout appris que je ne sais
 pas grand-chose.
@@ -83,9 +88,13 @@ J'ai rencontré des humains qui sont aujourd'hui une source d'inspiration pour m
 Et c'est ce qui me fait apprécier mon métier, avec un concept qui m'est cher et qui au début était une vanne, un concept
 qui me parle beaucoup aujourd'hui : "l'Empathy-Driven Development (EDD)".
 
-Donc voilà, je suis Lorenzo Milesi, juste une personne qui est lead et qui essaie de faire de l'EDD.
-                </x-markdown>
-            </div>
+Et donc à force de me mettre en position de personne qui découvre et qui aide à structurer, j'ai fini par avoir une
+position de lead dans mes CDI et une position de tech advisor en tant que freelance, et le plus cool, c'est que chacune
+nourrit l'autre, c'est pas super ça ?
+
+Donc voilà, je suis Thea, juste une personne qui est lead/tech advisor et qui essaie de faire de l'EDD.
+            </x-markdown>
         </div>
     </div>
+</div>
 </x-guest-layout>

@@ -26,8 +26,6 @@ Route::get('/theme', function (Request $request) {
     return back();
 })->name('theme');
 
-Route::get('/solutions', fn() => view('site.solutions'))->name('solutions');
-
 Route::get('/contact', fn() => view('site.contact'))->name('contact');
 
 Route::get('/blog', fn() => view('site.blog'))->name('blog');

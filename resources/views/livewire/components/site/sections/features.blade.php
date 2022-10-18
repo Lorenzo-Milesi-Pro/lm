@@ -5,7 +5,8 @@
         Concevons votre prochain outil
     </p>
     <p class="mt-5 max-w-prose mx-auto text-xl text-gray-500 dark:text-slate-300">
-        Le web est un écosystème qui permet d'utiliser des logiciels connectés, accessibles n'importe où pour gérer notre quotidien personnel comme professionnel
+        Le web est un écosystème qui permet d'utiliser des logiciels distribués, accessibles n'importe où et idéal pour gérer des données et des fonctionnalités professionnelles.<br />
+        Mon rôle, c'est d'aider à concevoir, façonner et rassembler les ressources nécessaires à l'améloration d'un besoin métier (du tactique au stratégique).
     </p>
     <div class="mt-12">
       <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -17,9 +18,10 @@
                   <x-icons.book-open class="h-6 w-6 text-white" />
                 </span>
               </div>
-              <h3 class="mt-8 text-lg font-medium text-gray-900 dark:text-slate-100 tracking-tight">Une base solide</h3>
+              <h3 class="mt-8 text-lg font-medium text-gray-900 dark:text-slate-100 tracking-tight">Maîtrise des concepts</h3>
               <p class="mt-5 text-base text-gray-500 dark:text-slate-300">
-                Je travaille sur un catalogue de prototypes, qui me permet de démarrer plus rapidement, tout en restant adaptable et flexible
+                  J'aide à structurer un projet et à interagir avec les équipes techniques pour mener à bien de la conception à
+                  la réalisation
               </p>
             </div>
           </div>
@@ -33,9 +35,10 @@
                   <x-icons.clipboard-check class="h-6 w-6 text-white" />
                 </span>
               </div>
-              <h3 class="mt-8 text-lg font-medium text-gray-900 dark:text-slate-100 tracking-tight">Un suivi flexible</h3>
+              <h3 class="mt-8 text-lg font-medium text-gray-900 dark:text-slate-100 tracking-tight">Expérience terrain</h3>
               <p class="mt-5 text-base text-gray-500 dark:text-slate-300">
-                Chaque besoin est spécifique, ainsi il peut être adapté selon les cas, tout en restant dans une mesure raisonnable
+                  Développeuse lead depuis 8 ans, mon savoir technique me permet de comprendre et soutenir les équipes
+                  techiques
               </p>
             </div>
           </div>
@@ -49,9 +52,10 @@
                     <x-icons.server class="h-6 w-6 text-white" />
                 </span>
               </div>
-              <h3 class="mt-8 text-lg font-medium text-gray-900 dark:text-slate-100 tracking-tight">Des options libres</h3>
+              <h3 class="mt-8 text-lg font-medium text-gray-900 dark:text-slate-100 tracking-tight">Données et Infra</h3>
               <p class="mt-5 text-base text-gray-500 dark:text-slate-300">
-                En plus de la technique, un projet requiert d'autres expertises (design, hébergement), je peux vous aider pour des cas mesurés
+                  Selon la taille et les besoins de votre entreprise, j'initie les réflexions et les ébauches de systèmes
+                  d'informations
               </p>
             </div>
           </div>
@@ -83,7 +87,8 @@
               </div>
               <h3 class="mt-8 text-lg font-medium text-gray-900 dark:text-slate-100 tracking-tight">Un écosystème technique maîtrisé</h3>
               <p class="mt-5 text-base text-gray-500 dark:text-slate-300">
-                Mon cheval de bataille, c'est Laravel, et tout ce qu'offre son écosystème performant, efficace et confortable
+                  J'aide les équipes techniques à arbitrer, sélectionner et architecturer leurs outils en prenant en compte
+                  les spécificités du métier
               </p>
             </div>
           </div>
@@ -97,9 +102,9 @@
                     <x-icons.user class="h-6 w-6 text-white" />
                 </span>
               </div>
-              <h3 class="mt-8 text-lg font-medium text-gray-900 dark:text-slate-100 tracking-tight">Peu de clients par choix</h3>
+              <h3 class="mt-8 text-lg font-medium text-gray-900 dark:text-slate-100 tracking-tight">Peu de clients, plus de temps</h3>
               <p class="mt-5 text-base text-gray-500 dark:text-slate-300">
-                Étant donné que j'ai un travail en entreprise en parallèle, je ne cours pas après la clientèle, autrement dit, j'ai du temps à vous consacrer
+                  J'ai un CDI en parallèle, aussi je choisis peu de clients, pour vous réserver un maximum de temps (hors CDI)
               </p>
             </div>
           </div>
