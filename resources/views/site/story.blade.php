@@ -69,7 +69,7 @@ avis évolue sans cesse).
 Désormais, même si je veux toujours faire connaître mon travail, mes objectifs sont aussi de partager mes points de vue
 et mes points d'ouïe, mes retours d'expérience sur le développement. Si cela apporte quelque chose, c'est idéal 🚀.
 
-## 2. Comment je suis devenu lead et tech advisor
+## 2. Comment je suis devenue lead et tech advisor
 
 J'en sais rien 🤷🏻‍♀️.
 
@@ -77,7 +77,7 @@ En fait si 🤭, c'est grâce aux personnes qui m'entourent, cela demande beauco
 en question. J'avance, j'apprends tous les jours et apparemment avec le temps je commence à ne pas dire trop de
 conneries.
 
-Progressivement, je suis passé de junior à mid, puis de mid à lead. Et jusqu'ici j'ai surtout appris que je ne sais
+Progressivement, je suis passée de junior à mid, puis de mid à lead. Et jusqu'ici j'ai surtout appris que je ne sais
 pas grand-chose.
 
 C'est justement un bonheur, car cela rend nécessaire d'être à l'écoute, de créer et avoir des points d'ouïe différents,
